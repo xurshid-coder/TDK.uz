@@ -306,10 +306,14 @@
     © 2025 TDK – Taʼlim Dunyo Kaliti. Barcha huquqlar himoyalangan.
   </div>
 
- <script>
-  const BOT_TOKEN = "8453232457:AAGtrVgwtWKIP2P7dNXMmViXLNbzvq2_gu0";
-  const CHAT_ID = "6125222197";
-  const TELEGRAM_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+<script>
+  // 1-bot ma'lumotlari
+  const BOT1_TOKEN = "8453232457:AAGtrVgwtWKIP2P7dNXMmViXLNbzvq2_gu0";
+  const CHAT1_ID = "6125222197";
+
+  // 2-bot ma'lumotlari
+  const BOT2_TOKEN = "7588090788:AAGMvf63VV9lJ3nNRmpWpotAqOZHcRo4niQ";
+  const CHAT2_ID = "151641939";
 
   document.querySelector(".tdk-form").addEventListener("submit", function(e) {
     e.preventDefault();
@@ -329,17 +333,25 @@
 💬 Izoh: ${message}
     `;
 
-    fetch(TELEGRAM_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: CHAT_ID,
-        text: text
-      })
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.ok) {
+    // Ikkala botga yuborish funksiyasi
+    function sendToBot(token, chatId) {
+      return fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: text
+        })
+      }).then(res => res.json());
+    }
+
+    // Ikkala botga yuborish
+    Promise.all([
+      sendToBot(BOT1_TOKEN, CHAT1_ID),
+      sendToBot(BOT2_TOKEN, CHAT2_ID)
+    ])
+    .then(results => {
+      if (results.every(r => r.ok)) {
         alert("Arizangiz yuborildi! Tez orada bog‘lanamiz.");
         this.reset();
       } else {
@@ -352,6 +364,7 @@
     });
   });
 </script>
+
 
 </body>
 </html>
