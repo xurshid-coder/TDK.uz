@@ -305,33 +305,55 @@
     © 2025 TDK – Taʼlim Dunyo Kaliti. Barcha huquqlar himoyalangan.
   </div>
 
-  <script>
-    // Kurslar jonli hover effekti
-    document.querySelectorAll('.kurslar-list li').forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.35), transparent), linear-gradient(135deg, #4facfe, #00f2fe)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.background = 'linear-gradient(135deg, #ffffff, #f3f6ff)';
-      });
-    });
+ <script>
+  const BOT_TOKEN = "8453232457:AAGtrVgwtWKIP2P7dNXMmViXLNbzvq2_gu0";
+  const CHAT_ID = "6125222197";
+  const TELEGRAM_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
-    // Test tugmalari animatsiyasi
-    const buttons = document.querySelectorAll('.test-btn');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', function () {
-        btn.classList.add('clicked');
-        setTimeout(() => {
-          window.location.href = btn.getAttribute('data-link');
-        }, 300); 
-      });
+  document.querySelector(".tdk-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = this.name.value;
+    const phone = this.phone.value;
+    const birthDate = this["data-correct"].value;
+    const course = this.course.value;
+    const message = this.message.value || "Izoh berilmagan";
+
+    const text = `
+📋 Yangi ariza!
+👤 Ism: ${name}
+📞 Telefon: ${phone}
+🎂 Tug'ilgan sana: ${birthDate}
+📚 Kurs: ${course}
+💬 Izoh: ${message}
+    `;
+
+    fetch(TELEGRAM_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        text: text
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.ok) {
+        alert("Arizangiz yuborildi! Tez orada bog‘lanamiz.");
+        this.reset();
+      } else {
+        alert("Xatolik yuz berdi. Qayta urinib ko‘ring.");
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      alert("Internetda muammo bo‘lishi mumkin.");
     });
-   
-  </script>
+  });
+</script>
+
 </body>
 </html>
+
 
 
