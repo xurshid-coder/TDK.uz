@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python ga kirish — TDK</title>
+  <style>
+    :root{
+      --bg1: #f5f7fa;
+      --bg2: #c3cfe2;
+      --card:#ffffff;
+      --accent:#3498db;
+      --muted:#6b7280;
+      --radius:15px;
+    }
+    *{box-sizing:border-box}
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      color: #2c3e50;
+      -webkit-font-smoothing:antialiased;
+    }
+    .wrap{
+      max-width:1100px;
+      margin:40px auto;
+      padding:30px;
+    }
+    header {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:20px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:14px
+    }
+    .logo{
+      width:64px;height:64px;border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),#2ecc71);
+      display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;box-shadow:0 6px 18px rgba(52,152,219,0.18)
+    }
+    h1{font-size:30px;margin:0;color:#34495e}
+    nav a{margin-left:14px;color:var(--muted);text-decoration:none;font-weight:600}
+
+    .container{
+      background:var(--card);
+      padding:36px;border-radius:var(--radius);
+      box-shadow:0 12px 30px rgba(44,62,80,0.07);
+      animation:fadeIn .8s ease-in-out;
+    }
+
+    .lead{font-size:18px;line-height:1.7;text-align:center;color:#2f4150;margin-bottom:20px}
+
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:26px}
+
+    .card{background:#fbfdff;border-radius:12px;padding:18px;margin-bottom:18px;box-shadow:0 8px 20px rgba(12,30,50,0.03)}
+
+    .section-title{font-size:20px;color:#2c3e50;margin-bottom:10px}
+
+    .highlight{
+      background:#ecf0f1;padding:14px 18px;border-left:6px solid var(--accent);border-radius:8px;margin:14px 0
+    }
+
+    pre{background:#0b1220;color:#e6f1ff;padding:16px;border-radius:8px;overflow:auto;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace}
+    code{font-size:14px}
+
+    ul{line-height:1.7}
+
+    aside .card{position:sticky;top:28px}
+
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:14px}
+
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+      .logo{width:56px;height:56px}
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">TDK</div>
+        <div>
+          <h1>Python ga kirish</h1>
+          <div style="color:var(--muted);font-size:13px">TDK — Ta'lim Dunyo Kaliti</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">Asosiy</a>
+        <a href="#install">O'rnatish</a>
+        <a href="#basic">Asoslar</a>
+        <a href="#examples">Misollar</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <p class="lead">Ushbu sahifa Python dasturlash tiliga kirish uchun mo‘ljallangan. Sizga kerakli asosiy tushunchalar, birinchi dastur, o‘zgaruvchilar, ma'lumot tiplari, nazorat strukturalari va amaliy maslahatlar taqdim etiladi. Har bir bo‘lim qisqacha, tushunarli va amaliy misollar bilan boyitilgan.</p>
+
+      <div class="grid">
+        <main>
+
+          <section id="about" class="card">
+            <div class="section-title">Python nima?</div>
+            <p>Python — o‘qilishi oson, yuqori darajadagi, ko‘p maqsadli dasturlash tili. U veb-ishlanmalar, ma'lumotlarni tahlil qilish, sun'iy intellekt, automatizatsiya va o‘qitish uchun keng qo‘llaniladi.</p>
+            <div class="highlight">
+              <h3 style="margin:0">Nega Python o‘rganish kerak?</h3>
+              <p style="margin:8px 0 0">- Soddaligi va kuchli kutubxonalari (numpy, pandas, flask, django, tensorflow).<br>- Karyera imkoniyatlari keng.<br>- Kichik loyihadan katta tizimlargacha moslashadi.</p>
+            </div>
+          </section>
+
+          <section id="install" class="card">
+            <div class="section-title">O'rnatish va ish muhitini tayyorlash</div>
+            <ul>
+              <li><strong>Python o‘rnatish:</strong> <em>python.org</em> saytidan so‘nggi barqaror versiyasini yuklab oling yoki anaconda distribyutivini o‘rnating (ma'lumot tahlili uchun qulay).</li>
+              <li><strong>Tekshirish (Terminal):</strong> <code>python --version</code> yoki <code>python3 --version</code>.</li>
+              <li><strong>Muhit:</strong> Visual Studio Code yoki PyCharm tavsiya etiladi.</li>
+              <li><strong>Paketlarni o‘rnatish:</strong> <code>pip install paket_nomi</code>.</li>
+            </ul>
+          </section>
+
+          <section id="basic" class="card">
+            <div class="section-title">Asosiy tushunchalar</div>
+
+            <h4 style="margin:10px 0">1) Birinchi dastur</h4>
+            <p>Oddiy salomlashuv dasturi:</p>
+            <pre><code>print("Salom, Python!")</code></pre>
+
+            <h4 style="margin:10px 0">2) O'zgaruvchilar va ma'lumot tiplari</h4>
+            <p>Python-da o'zgaruvchilarni aniqlash oddiy: qiymat tayinlanganda tur avtomatik belgilanadi.</p>
+            <pre><code>x = 5          # int
+pi = 3.14       # float
+name = "Ali"   # str
+is_ok = True    # bool</code></pre>
+
+            <h4 style="margin:10px 0">3) Kirish va chiqish</h4>
+            <pre><code>ism = input("Ismingiz nima? ")
+print("Salom,", ism)</code></pre>
+
+            <h4 style="margin:10px 0">4) Nazorat strukturalari</h4>
+            <pre><code>if x &gt; 0:
+    print("Musbat")
+else:
+    print("Musbat emas")
+
+# sikl
+for i in range(5):
+    print(i)
+
+while shart:
+    do_something()</code></pre>
+
+            <h4 style="margin:10px 0">5) Funksiyalar</h4>
+            <pre><code>def yigindi(a, b):
+    return a + b
+
+print(yigindi(3,4))  # 7</code></pre>
+
+          </section>
+
+          <section id="examples" class="card">
+            <div class="section-title">Kichik amaliy misollar</div>
+
+            <h4 style="margin:10px 0">1) Sonlarni jamlash</h4>
+            <pre><code>sonlar = [1,2,3,4,5]
+print(sum(sonlar))</code></pre>
+
+            <h4 style="margin:10px 0">2) Faylga yozish</h4>
+            <pre><code>with open('hello.txt','w') as f:
+    f.write('Salom fayl!')</code></pre>
+
+            <div class="highlight">
+              <strong>Maslahat:</strong> Kichik loyihalar qiling — masalan, hisoblagich, kontakt daftar, yoki oddiy veb-sahifa (Flask bilan) — bu o‘rganishni chuqurlashtiradi.
+            </div>
+
+          </section>
+
+          <section class="card">
+            <div class="section-title">Amaliy mashqlar (boshlovchilar uchun)</div>
+            <ol>
+              <li>Foydalanuvchidan ikki son olib ularni qo‘shing va natijani chiqarish.</li>
+              <li>Ro'yxatdagi juft sonlarni ajratib, yangi ro'yxatga yozing.</li>
+              <li>Fayldan matn o‘qib so‘zlarni sanash dasturini yozing.</li>
+            </ol>
+          </section>
+
+        </main>
+
+        <aside>
+          <div class="card">
+            <div class="section-title">Tez ko‘rsatma</div>
+            <ul>
+              <li><strong>Run:</strong> <code>python fayl.py</code></li>
+              <li><strong>Virtual muhit:</strong> <code>python -m venv env</code></li>
+              <li><strong>Pip yangilash:</strong> <code>python -m pip install --upgrade pip</code></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="section-title">Foydali resurslar</div>
+            <ul>
+              <li>Rasmiy hujjat: <em>docs.python.org</em></li>
+              <li>Interaktiv darslar: <em>python.tutorials, <a href="https://www.w3schools.com/">w3schools</a> , <a href=" freeCodeCamp">freeCodeCamp</a> </em></li>
+              <li>Kitoblar: "Automate the Boring Stuff" (boshlovchilar uchun yaxshi)</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="section-title">Tez-tez uchraydigan xatoliklar</div>
+            <ul>
+              <li>Indentatsiya xatolari (bo‘sh joylar yoki tab bilan aralashmasin).</li>
+              <li>O'zgaruvchi nomlari bilan xatolar.</li>
+              <li>Fayl nomi "python.py" kabi olib tashlanishini oldini olish (standart modul bilan chalkashlik bo'lishi mumkin).</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+      <footer>
+        © 2025 TDK – Taʼlim Dunyo Kaliti. Barcha huquqlar himoyalangan.
+      </footer>
+
+    </div>
+  </div>
+</body>
+</html>

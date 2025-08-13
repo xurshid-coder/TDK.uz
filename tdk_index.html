@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TDK – Taʼlim Dunyo Kaliti</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #f0f8ff, #ffffff);
+      color: #333;
+    }
+
+    header {
+      background-image: url('bayroq.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      padding: 100px 0px;
+    }
+
+    nav {
+      background-color: #0056b3;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    .hero {
+      position: relative;
+      background-image: url('fotograph.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 300px 80px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      background-color: rgba(0, 0, 0, 0.6);
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 24px;
+    }
+
+    .section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .section h2 {
+      color: #0055a5;
+      margin-bottom: 20px;
+    }
+
+    /* Yangi Kurslarimiz dizayni */
+    .kurslar-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      padding: 20px;
+    }
+
+    .kurslar-list li {
+      background: linear-gradient(135deg, #ffffff, #f3f6ff);
+      border-radius: 15px;
+      padding: 30px 20px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+      transition: all 0.35s ease;
+      text-align: center;
+      list-style: none;
+      position: relative;
+      overflow: hidden;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .kurslar-list li a {
+      text-decoration: none;
+      color: #0055a5;
+      display: block;
+      transition: color 0.3s ease;
+    }
+
+    .kurslar-list li:hover {
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+    }
+
+    .kurslar-list li:hover a {
+      color: white;
+    }
+
+    .kurslar-list li::before {
+      content: "📘";
+      font-size: 28px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    button {
+      background-color: #007bff;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: 20px auto;
+    }
+
+    input, select, textarea {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .contact {
+      background-color: #003366;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .footer {
+      background-color: #001d33;
+      color: #aaa;
+      padding: 15px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 18px;
+        padding: 10px;
+      }
+
+      nav {
+        flex-direction: column;
+      }
+
+      nav a {
+        margin: 5px 0;
+      }
+    }
+
+    #markaz {
+      text-align: center;
+      color: hsl(209, 100%, 32%);
+    }
+
+    .test-btn {
+      font-size: 20px;
+      padding: 20px 40px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #007bff, #0056b3);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      min-width: 200px;
+      position: relative;
+    }
+
+    .test-btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 10px 18px rgba(0,0,0,0.25);
+      background: linear-gradient(135deg, #0056b3, #003f80);
+    }
+
+    .test-btn.clicked {
+      background-color: #28a745 !important;
+      transform: scale(0.95);
+      box-shadow: none;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>TDK – Taʼlim Dunyo Kaliti</h1>
+    <p>Xo‘jaqishloq qishlog‘i | +998 94 307 75 61 | <a href="https://t.me/tdk_uz" style="color: #9fdfff;">@tdk_uz</a></p>
+  </header>
+
+  <nav>
+    <a href="#kurslar">Kurslar</a>
+    <a href="#testlar">Testlar</a>
+    <a href="#yangiliklar">Yangiliklar</a>
+    <a href="#ro'yhat">Ro‘yxatdan o‘tish</a>
+    <a href="#aloqa">Aloqa</a>
+  </nav>
+
+  <div class="hero"></div>
+
+  <div id="markaz">
+    <h1>O‘quv markazingizni biz bilan boshlang!</h1>
+  </div>
+
+  <div class="section" id="kurslar">
+    <h2>Kurslarimiz</h2>
+    <ul class="kurslar-list">
+      <li><a href="kurs_prezidentm.html">Prezident maktabiga tayyorlov</a></li>
+      <li><a href="kurs_dasturlash.html">Python va Dasturlash</a></li>
+      <li><a href="kurs_ingiliz_tili.html">Ingliz tili</a></li>
+      <li><a href="kurs_matematika.html">Matematika</a></li>
+    </ul>
+  </div>
+
+  <div class="section" id="testlar">
+    <h2>Online testlar</h2>
+    <p><b>O‘quvchilarimiz bilimini sinab ko‘rish uchun online testlar mavjud.</b></p>
+    <div class="buttons">
+      <button class="test-btn" data-link="test_matematika.html">📐 Matematika</button>
+      <button class="test-btn" data-link="test_dasturlash.html">💻 Dasturlash</button>
+      <button class="test-btn" data-link="test_ona_tili.html">📘 Ona tili</button>
+      <button class="test-btn" data-link="test_ingiliz_tili.html">🌍 Ingliz tili</button>
+      <button class="test-btn" data-link="test_fizika.html">🔬 Fizika</button>
+    </div>
+  </div>
+
+  <div class="section" id="yangiliklar">
+    <h2>So‘nggi yangiliklar</h2>
+    <p><b>TDK o‘quvchilari Prezident maktabi imtihonida yuqori natijalarga erishmoqda!</b></p>
+  </div>
+
+  <div class="section" id="ro'yhat">
+    <form class="tdk-form">
+      <h2>Ro‘yxatdan o‘tish</h2>
+      <input type="text" name="name" placeholder="Ismingiz" required>
+      <input type="tel" name="phone" placeholder="Telefon raqamingiz" required>
+      <input type="date" name="data-correct" placeholder="Tug‘ilgan kuningiz" required>
+      <select name="course" required>
+        <option value="">Kursni tanlang</option>
+        <option value="prezident">Prezident maktabiga tayyorlov</option>
+        <option value="python">Dasturlash</option>
+        <option value="english">Ingliz tili</option>
+        <option value="mental">Matematika</option>
+      </select>
+      <textarea name="message" rows="4" placeholder="Izoh (ixtiyoriy)"></textarea>
+      <button type="submit">Ariza topshirish</button>
+    </form>
+  </div>
+
+  <div class="contact" id="aloqa">
+    <h2>Biz bilan bog‘laning</h2>
+    <p>📍 Xo‘jaqishloq qishlog‘i<br>
+       📞 +998 94 307 75 61<br>
+       ✉️ Telegram: <a href="https://t.me/tdk_uz" style="color: #9fdfff;">@tdk_uz</a>
+    </p>
+  </div>
+
+  <div class="footer">
+    © 2025 TDK – Taʼlim Dunyo Kaliti. Barcha huquqlar himoyalangan.
+  </div>
+
+  <script>
+    // Kurslar jonli hover effekti
+    document.querySelectorAll('.kurslar-list li').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.35), transparent), linear-gradient(135deg, #4facfe, #00f2fe)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.background = 'linear-gradient(135deg, #ffffff, #f3f6ff)';
+      });
+    });
+
+    // Test tugmalari animatsiyasi
+    const buttons = document.querySelectorAll('.test-btn');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', function () {
+        btn.classList.add('clicked');
+        setTimeout(() => {
+          window.location.href = btn.getAttribute('data-link');
+        }, 300); 
+      });
+    });
+  </script>
+</body>
+</html>

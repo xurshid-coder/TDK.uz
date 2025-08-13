@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TDK Online Test</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f8ff;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      text-align: center;
+      color: #003366;
+      margin-bottom: 10px;
+    }
+    .main-wrapper {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      max-width: 1300px;
+      justify-content: space-between;
+    }
+    .left-section {
+      flex: 1;
+      margin-right: 30px;
+    }
+    .right-section {
+      width: 420px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      height: fit-content;
+      position: sticky;
+      top: 20px;
+      margin-right: 30px;
+    }
+    .fixed-indicators {
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto 20px auto;
+      padding: 20px;
+      background-color: #f1f5ff;
+      border-radius: 12px;
+      box-sizing: border-box;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .indicator-row {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .number {
+    width: 50px;
+    height: 30px;
+    background-color: #ddd;
+    border-radius:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    font-size: 17px;
+    transition: background-color 0.3s;
+    }
+    .number.active {
+      background-color: #0077cc;
+      color: #fff;
+    }
+    .test-box {
+      width: 100%;
+      max-width: 800px;
+      max-height: 75vh;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+    .question {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      border-radius: 10s0px;
+      scroll-margin-top: 100px;
+    }
+    .question h3 {
+      margin-bottom: 10px;
+    }
+    .question label {
+      display: block;
+      margin: 5px 0;
+    }
+    button {
+      display: inline-block;
+      margin: 20px 10px;
+      background-color: #0077cc;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    button.disabled {
+      background-color: #a3bffa;
+      cursor: not-allowed;
+    }
+    #summary {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #003366;
+      margin-top: 10px;
+    }
+    #resultSection {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>TDK Online Test</h1>
+  <div class="main-wrapper">
+    <div class="left-section">
+      <div class="test-box" id="testArea"></div>
+      <div style="text-align:center">
+        <button id="resultButton" onclick="calculateResult()" class="disabled" disabled>Natijani ko‘rish</button>
+      </div>
+    </div>
+    <div class="right-section">
+      <div class="fixed-indicators" id="indicatorArea"></div>
+      <div id="resultSection">
+        <div id="summary"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="allQuestions" style="display: none">
+ 
+
+
+<div class="question">
+  <h3>“Ona” so‘zi nechta harfdan iborat?</h3>
+  <label><input type="radio" name="q1" value="A" />  2</label><br>
+  <label><input type="radio" name="q1" value="B" data-correct="true" /> 3</label><br>
+  <label><input type="radio" name="q1" value="C" /> 4</label><br>
+  <label><input type="radio" name="q1" value="D" /> 5</label><br>
+</div>
+
+<div class="question">
+  <h3>Quyidagilardan qaysi biri fe’l?</h3>
+  <label><input type="radio" name="q2" value="A" />  Daraxt</label><br>
+  <label><input type="radio" name="q2" value="B" data-correct="true" /> Yugurdi</label><br>
+  <label><input type="radio" name="q2" value="C" /> Kitob</label><br>
+  <label><input type="radio" name="q2" value="D" /> Qalam</label><br>
+</div>
+
+<div class="question">
+  <h3>“Qizil olma” so‘z birikmasida qaysi so‘z sifat?</h3>
+  <label><input type="radio" name="q3" value="A" />  Olma</label><br>
+  <label><input type="radio" name="q3" value="B" data-correct="true" /> Qizil</label><br>
+  <label><input type="radio" name="q3" value="C" /> So‘z</label><br>
+  <label><input type="radio" name="q3" value="D" /> Birikma</label><br>
+</div>
+
+<div class="question">
+  <h3>“Men o‘qishga bordim.” jumlasida nechta so‘z bor?</h3>
+  <label><input type="radio" name="q4" value="A" />  2</label><br>
+  <label><input type="radio" name="q4" value="B" />  4</label><br>
+  <label><input type="radio" name="q4" value="C" data-correct="true" /> 3</label><br>
+  <label><input type="radio" name="q4" value="D" />  5</label><br>
+</div>
+
+<div class="question">
+  <h3>Qaysi so‘z tovush bo‘yicha tahlil qilinmoqda: “kitob” – 5 harf, 5 tovush?</h3>
+  <label><input type="radio" name="q5" value="A" />  Qalam</label><br>
+  <label><input type="radio" name="q5" value="B" data-correct="true" />  Kitob</label><br>
+  <label><input type="radio" name="q5" value="C" />  Uy</label><br>
+  <label><input type="radio" name="q5" value="D" />  Maktab</label><br>
+</div>
+
+<div class="question">
+  <h3>“Uchburchak” so‘zida nechta bo‘g‘in bor?</h3>
+  <label><input type="radio" name="q6" value="A" /> 1</label><br>
+  <label><input type="radio" name="q6" value="B" /> 4</label><br>
+  <label><input type="radio" name="q6" value="C" data-correct="true" /> 3</label><br>
+  <label><input type="radio" name="q6" value="D" />  2</label><br>
+</div>
+
+<div class="question">
+  <h3>Qaysi so‘zda undosh harflar ko‘p?</h3>
+  <label><input type="radio" name="q7" value="A" />  Ona</label><br>
+  <label><input type="radio" name="q7" value="B" />  Ota</label><br>
+  <label><input type="radio" name="q7" value="C" data-correct="true" />  Maktab</label><br>
+  <label><input type="radio" name="q7" value="D" />  Uy</label><br>
+</div>
+
+<div class="question">
+  <h3>“Men kitob o‘qiyapman.” jumlasidagi fe’l qaysi?</h3>
+  <label><input type="radio" name="q8" value="A" /> Kitob</label><br>
+  <label><input type="radio" name="q8" value="B" data-correct="true" />  O‘qiyapman</label><br>
+  <label><input type="radio" name="q8" value="C" />  Men</label><br>
+  <label><input type="radio" name="q8" value="D" />  Men kitob</label><br>
+</div>
+
+<div class="question">
+  <h3>“Yaxshi” so‘zining ma’nodosh so‘zini toping:</h3>
+  <label><input type="radio" name="q9" value="A" />  Yomon</label><br>
+  <label><input type="radio" name="q9" value="B" data-correct="true" /> Zo‘r</label><br>
+  <label><input type="radio" name="q9" value="C" /> Qiyin</label><br>
+  <label><input type="radio" name="q9" value="D" /> Past</label><br>
+</div>
+
+<div class="question">
+  <h3>“Qalam” so‘zida nechta unli harf bor?</h3>
+  <label><input type="radio" name="q10" value="A" data-correct="true" /> 2</label><br>
+  <label><input type="radio" name="q10" value="B" />  3</label><br>
+  <label><input type="radio" name="q10" value="C" />  1</label><br>
+  <label><input type="radio" name="q10" value="D" />  4</label><br>
+</div>
+<div class="question">
+  <h3>“Daryo” so‘zida nechta bo‘g‘in bor?</h3>
+  <label><input type="radio" name="q11" value="A" /> 1</label><br>
+  <label><input type="radio" name="q11" value="B" data-correct="true" />  2</label><br>
+  <label><input type="radio" name="q11" value="C" />  3</label><br>
+  <label><input type="radio" name="q11" value="D" />  4</label><br>
+</div>
+
+<div class="question">
+  <h3>“Kitob” so‘zi qanday so‘z turkumi?</h3>
+  <label><input type="radio" name="q12" value="A" data-correct="true" />  Ot</label><br>
+  <label><input type="radio" name="q12" value="B" />  Fe’l</label><br>
+  <label><input type="radio" name="q12" value="C" />  Sifat</label><br>
+  <label><input type="radio" name="q12" value="D" />  Ravish</label><br>
+</div>
+
+<div class="question">
+  <h3>“Tez” so‘zining zid ma’nodoshi qaysi?</h3>
+  <label><input type="radio" name="q13" value="A" />Katta</label><br>
+  <label><input type="radio" name="q13" value="B" />Yaxshi</label><br>
+  <label><input type="radio" name="q13" value="C" />Chiroyli</label><br>
+  <label><input type="radio" name="q13" value="D" data-correct="true" />  Sekin</label><br>
+</div>
+
+<div class="question">
+  <h3>“Uydan chiqdi.” jumlasida fe’lni aniqlang.</h3>
+  <label><input type="radio" name="q14" value="A" />  Uy</label><br>
+  <label><input type="radio" name="q14" value="B" />  Dan</label><br>
+  <label><input type="radio" name="q14" value="C" data-correct="true" /> Chiqdi</label><br>
+  <label><input type="radio" name="q14" value="D" />  - </label><br>
+</div>
+
+<div class="question">
+  <h3>“O‘qituvchi” so‘zida nechta harf bor?</h3>
+  <label><input type="radio" name="q15" value="A" />  7</label><br>
+  <label><input type="radio" name="q15" value="B" />  9</label><br>
+  <label><input type="radio" name="q15" value="C" data-correct="true" />  10</label><br>
+  <label><input type="radio" name="q15" value="D" /> 11</label><br>
+</div>
+
+<div class="question">
+  <h3>Quyidagi so‘zlardan qaysi biri ko‘plikda berilgan?</h3>
+  <label><input type="radio" name="q16" value="A" /> Bola</label><br>
+  <label><input type="radio" name="q16" value="B" /> Ot</label><br>
+  <label><input type="radio" name="q16" value="C" data-correct="true" />  Bolalar</label><br>
+  <label><input type="radio" name="q16" value="D" />  Qalam</label><br>
+</div>
+
+<div class="question">
+  <h3>“Men ertaga kelaman.” jumlasida qaysi so‘z fe’l?</h3>
+  <label><input type="radio" name="q17" value="A" />  Men</label><br>
+  <label><input type="radio" name="q17" value="B" data-correct="true" /> Kelaman</label><br>
+  <label><input type="radio" name="q17" value="C" />  Ertaga</label><br>
+  <label><input type="radio" name="q17" value="D" />  -</label><br>
+</div>
+
+<div class="question">
+  <h3>Qaysi so‘zda 3 ta bo‘g‘in bor?</h3>
+  <label><input type="radio" name="q18" value="A" /> Uy</label><br>
+  <label><input type="radio" name="q18" value="B" /> Suv</label><br>
+  <label><input type="radio" name="q18" value="C" data-correct="true" />  O‘qituvchi</label><br>
+  <label><input type="radio" name="q18" value="D" />  Uyda</label><br>
+</div>
+
+<div class="question">
+  <h3>“Sariq limon” birikmasida sifatni belgilang.</h3>
+  <label><input type="radio" name="q19" value="A" />  Limon</label><br>
+  <label><input type="radio" name="q19" value="B" data-correct="true" /> Sariq</label><br>
+  <label><input type="radio" name="q19" value="C" /> Meva</label><br>
+  <label><input type="radio" name="q19" value="D" /> -</label><br>
+</div>
+
+<div class="question">
+  <h3>Qaysi so‘zda faqat undosh harflar mavjud?</h3>
+  <label><input type="radio" name="q20" value="A" />  Oy</label><br>
+  <label><input type="radio" name="q20" value="B" />  Yil</label><br>
+  <label><input type="radio" name="q20" value="C" data-correct="true" />  Krk</label><br>
+  <label><input type="radio" name="q20" value="D" />  Soat</label><br>
+</div>
+<div class="question">
+  <h3>“Chiroyli” so‘zining ma’nodoshini tanlang.</h3>
+  <label><input type="radio" name="q21" value="A" />  Qorong‘i</label><br>
+  <label><input type="radio" name="q21" value="B" data-correct="true" />  Go‘zal</label><br>
+  <label><input type="radio" name="q21" value="C" /> Yomon</label><br>
+  <label><input type="radio" name="q21" value="D" />  Bezor</label><br>
+</div>
+
+<div class="question">
+  <h3>“Katta” so‘zining zid ma’nosi qaysi?</h3>
+  <label><input type="radio" name="q22" value="A" data-correct="true" />  Kichik</label><br>
+  <label><input type="radio" name="q22" value="B" /> Yirik</label><br>
+  <label><input type="radio" name="q22" value="C" />  Uluğ</label><br>
+  <label><input type="radio" name="q22" value="D" />  Ulkan</label><br>
+</div>
+
+<div class="question">
+  <h3>“Tez yugurdi” jumlasida fe’l qaysi so‘z?</h3>
+  <label><input type="radio" name="q23" value="A" /> Tez</label><br>
+  <label><input type="radio" name="q23" value="B" data-correct="true" />  Yugurdi</label><br>
+  <label><input type="radio" name="q23" value="C" />  Yugur</label><br>
+  <label><input type="radio" name="q23" value="D" />  -</label><br>
+</div>
+
+<div class="question">
+  <h3>“Qiz bola” birikmasida qaysi so‘z ot?</h3>
+  <label><input type="radio" name="q24" value="A" />  Qiz</label><br>
+  <label><input type="radio" name="q24" value="B" data-correct="true" />  Bola</label><br>
+  <label><input type="radio" name="q24" value="C" />  Qiz bola</label><br>
+  <label><input type="radio" name="q24" value="D" />  Har ikkalasi</label><br>
+</div>
+
+<div class="question">
+  <h3>“Qor” so‘zida nechta tovush bor?</h3>
+  <label><input type="radio" name="q25" value="A" />  2</label><br>
+  <label><input type="radio" name="q25" value="B" data-correct="true" /> 3</label><br>
+  <label><input type="radio" name="q25" value="C" />  4</label><br>
+  <label><input type="radio" name="q25" value="D" />  5</label><br>
+</div>
+
+<div class="question">
+  <h3>“O‘smir” so‘zining to‘g‘ri yozilishi qaysi?</h3>
+  <label><input type="radio" name="q26" value="A" data-correct="true" />  O‘smir</label><br>
+  <label><input type="radio" name="q26" value="B" /> Usmir</label><br>
+  <label><input type="radio" name="q26" value="C" /> Os’mir</label><br>
+  <label><input type="radio" name="q26" value="D" /> Ushmir</label><br>
+</div>
+
+<div class="question">
+  <h3>“Olma pishdi.” jumlasida fe’lni belgilang.</h3>
+  <label><input type="radio" name="q27" value="A" />  Olma</label><br>
+  <label><input type="radio" name="q27" value="B" data-correct="true" />  Pishdi</label><br>
+  <label><input type="radio" name="q27" value="C" />  Olma pishdi</label><br>
+  <label><input type="radio" name="q27" value="D" />  -</label><br>
+</div>
+
+<div class="question">
+  <h3>Qaysi so‘zda unli harflar ko‘proq?</h3>
+  <label><input type="radio" name="q28" value="A" />  Dastur</label><br>
+  <label><input type="radio" name="q28" value="B" />  Qalam</label><br>
+  <label><input type="radio" name="q28" value="C" data-correct="true" />  Alifbo</label><br>
+  <label><input type="radio" name="q28" value="D" /> Stol</label><br>
+</div>
+
+<div class="question">
+  <h3>“Chiqdi” fe’lini zamoniga ko‘ra aniqlang.</h3>
+  <label><input type="radio" name="q29" value="A" data-correct="true" /> O‘tmish zamon</label><br>
+  <label><input type="radio" name="q29" value="B" /> Hozirgi zamon</label><br>
+  <label><input type="radio" name="q29" value="C" /> Kelasi zamon</label><br>
+  <label><input type="radio" name="q29" value="D" /> Buyruq</label><br>
+</div>
+
+<div class="question">
+  <h3>“Men yozaman” jumlasida fe’lni toping.</h3>
+  <label><input type="radio" name="q30" value="A" />  Men</label><br>
+  <label><input type="radio" name="q30" value="B" />  Yoza</label><br>
+  <label><input type="radio" name="q30" value="C" data-correct="true" />  Yozaman</label><br>
+  <label><input type="radio" name="q30" value="D" />  -</label><br>
+</div>
+<div class="question">
+  <h3>“O‘qiydi” fe’li qaysi zamonda?</h3>
+  <label><input type="radio" name="q31" value="A" />  O‘tmish zamon</label><br>
+  <label><input type="radio" name="q31" value="B" data-correct="true" /> Hozirgi zamon</label><br>
+  <label><input type="radio" name="q31" value="C" />  Kelasi zamon</label><br>
+  <label><input type="radio" name="q31" value="D" />  Buyruq zamon</label><br>
+</div>
+
+<div class="question">
+  <h3>“Kitoblar” so‘zida ko‘plik qo‘shimchasi qaysi?</h3>
+  <label><input type="radio" name="q32" value="A" />  -ob</label><br>
+  <label><input type="radio" name="q32" value="B" data-correct="true" />  -lar</label><br>
+  <label><input type="radio" name="q32" value="C" />  -larlar</label><br>
+  <label><input type="radio" name="q32" value="D" />  -kit</label><br>
+</div>
+
+<div class="question">
+  <h3>Qaysi so‘zda tovush va harf soni teng?</h3>
+  <label><input type="radio" name="q33" value="A" />  Tong</label><br>
+  <label><input type="radio" name="q33" value="B" data-correct="true" /> Kitob</label><br>
+  <label><input type="radio" name="q33" value="C" />  O‘rmon</label><br>
+  <label><input type="radio" name="q33" value="D" />  Bahor</label><br>
+</div>
+
+<div class="question">
+  <h3>“Chiroyli” so‘zining so‘z turkumi nima?</h3>
+  <label><input type="radio" name="q34" value="A" />  Ot</label><br>
+  <label><input type="radio" name="q34" value="B" />  Fe’l</label><br>
+  <label><input type="radio" name="q34" value="C" data-correct="true" />  Sifat</label><br>
+  <label><input type="radio" name="q34" value="D" />  Son</label><br>
+</div>
+
+<div class="question">
+  <h3>“Yugur” fe’li qanday zamonda?</h3>
+  <label><input type="radio" name="q35" value="A" data-correct="true" />  Buyruq zamon</label><br>
+  <label><input type="radio" name="q35" value="B" /> O‘tmish zamon</label><br>
+  <label><input type="radio" name="q35" value="C" /> Hozirgi zamon</label><br>
+  <label><input type="radio" name="q35" value="D" /> Kelasi zamon</label><br>
+</div>
+
+<div class="question">
+  <h3>“Qo‘ng‘iroq” so‘zida nechta bo‘g‘in bor?</h3>
+  <label><input type="radio" name="q36" value="A" /> 1</label><br>
+  <label><input type="radio" name="q36" value="B" /> 2</label><br>
+  <label><input type="radio" name="q36" value="C" data-correct="true" />  3</label><br>
+  <label><input type="radio" name="q36" value="D" />  4</label><br>
+</div>
+
+<div class="question">
+  <h3>“Maktabga bordim.” jumlasida qaysi so‘z ot?</h3>
+  <label><input type="radio" name="q37" value="A" data-correct="true" /> Maktabga</label><br>
+  <label><input type="radio" name="q37" value="B" /> Bordim</label><br>
+  <label><input type="radio" name="q37" value="C" /> -ga</label><br>
+  <label><input type="radio" name="q37" value="D" /> -</label><br>
+</div>
+
+<div class="question">
+  <h3>“Baliq” so‘zining ko‘plik shakli?</h3>
+  <label><input type="radio" name="q38" value="A" />  Baliql</label><br>
+  <label><input type="radio" name="q38" value="B" />  Baliqlarlar</label><br>
+  <label><input type="radio" name="q38" value="C" data-correct="true" /> Baliqlar</label><br>
+  <label><input type="radio" name="q38" value="D" /> Baliklar</label><br>
+</div>
+
+<div class="question">
+  <h3>“Keldi” fe’lining zamoni qaysi?</h3>
+  <label><input type="radio" name="q39" value="A" />  Kelasi</label><br>
+  <label><input type="radio" name="q39" value="B" data-correct="true" />  O‘tmish</label><br>
+  <label><input type="radio" name="q39" value="C" /> Hozirgi</label><br>
+  <label><input type="radio" name="q39" value="D" /> Buyruq</label><br>
+</div>
+
+<div class="question">
+  <h3>“Tog‘” so‘zidagi g‘ qanday tovush?</h3>
+  <label><input type="radio" name="q40" value="A" />  Unli</label><br>
+  <label><input type="radio" name="q40" value="B" data-correct="true" /> Undosh</label><br>
+  <label><input type="radio" name="q40" value="C" />  Yalpi</label><br>
+  <label><input type="radio" name="q40" value="D" />  —</label><br>
+</div>
+
+<div class="question">
+  <h3>“Salomlashdi” so‘zida nechta qo‘shimcha bor?</h3>
+  <label><input type="radio" name="q41" value="A" /> 1</label><br>
+  <label><input type="radio" name="q41" value="B" /> 2</label><br>
+  <label><input type="radio" name="q41" value="C" data-correct="true" /> 3</label><br>
+  <label><input type="radio" name="q41" value="D" />  4</label><br>
+</div>
+
+<div class="question">
+  <h3>“Men boraman” jumlasidagi fe’lni belgilang.</h3>
+  <label><input type="radio" name="q42" value="A" /> Men</label><br>
+  <label><input type="radio" name="q42" value="B" data-correct="true" /> Boraman</label><br>
+  <label><input type="radio" name="q42" value="C" />  Bora</label><br>
+  <label><input type="radio" name="q42" value="D" />  -</label><br>
+</div>
+
+<div class="question">
+  <h3>“Ko‘k” so‘zining ma’nosi nima?</h3>
+  <label><input type="radio" name="q43" value="A" data-correct="true" />  Rang</label><br>
+  <label><input type="radio" name="q43" value="B" />  Daraxt</label><br>
+  <label><input type="radio" name="q43" value="C" />  Hayvon</label><br>
+  <label><input type="radio" name="q43" value="D" />  Taom</label><br>
+</div>
+
+<div class="question">
+  <h3>Qaysi so‘zdagi tovushlar soni harflar soniga teng emas?</h3>
+  <label><input type="radio" name="q44" value="A" />  Kitob</label><br>
+  <label><input type="radio" name="q44" value="B" />  Qalam</label><br>
+  <label><input type="radio" name="q44" value="C" data-correct="true" />  Qo‘shiq</label><br>
+  <label><input type="radio" name="q44" value="D" /> Uy</label><br>
+</div>
+
+<div class="question">
+  <h3>“Bolalar o‘ynayapti” jumlasida nechta so‘z bor?</h3>
+  <label><input type="radio" name="q45" value="A" />  1</label><br>
+  <label><input type="radio" name="q45" value="B" />  2</label><br>
+  <label><input type="radio" name="q45" value="C" data-correct="true" />  2</label><br>
+  <label><input type="radio" name="q45" value="D" />  3</label><br>
+</div>
+
+<div class="question">
+  <h3>“Yashil yaproq” birikmasida sifatni aniqlang.</h3>
+  <label><input type="radio" name="q46" value="A" data-correct="true" />  Yashil</label><br>
+  <label><input type="radio" name="q46" value="B" />  Yaproq</label><br>
+  <label><input type="radio" name="q46" value="C" />  Birikma</label><br>
+  <label><input type="radio" name="q46" value="D" />  So‘z</label><br>
+</div>
+
+<div class="question">
+  <h3>“Bahor” so‘zida nechta bo‘g‘in bor?</h3>
+  <label><input type="radio" name="q47" value="A" />  1</label><br>
+  <label><input type="radio" name="q47" value="B" /> 3</label><br>
+  <label><input type="radio" name="q47" value="C" data-correct="true" /> 2</label><br>
+  <label><input type="radio" name="q47" value="D" />  4</label><br>
+</div>
+
+<div class="question">
+  <h3>“Men kitob o‘qiyman” fe’l qanday zamonda?</h3>
+  <label><input type="radio" name="q48" value="A" data-correct="true" /> Hozirgi zamon</label><br>
+  <label><input type="radio" name="q48" value="B" /> O‘tmish zamon</label><br>
+  <label><input type="radio" name="q48" value="C" /> Buyruq</label><br>
+  <label><input type="radio" name="q48" value="D" /> Kelasi zamon</label><br>
+</div>
+
+<div class="question">
+  <h3>“Daraxtlar” so‘zida ko‘plikni bildiruvchi qo‘shimcha qaysi?</h3>
+  <label><input type="radio" name="q49" value="A" />  -larlar</label><br>
+  <label><input type="radio" name="q49" value="B" />  -lar</label><br>
+  <label><input type="radio" name="q49" value="C" data-correct="true" />  -lar</label><br>
+  <label><input type="radio" name="q49" value="D" /> -dar</label><br>
+</div>
+
+<div class="question">
+  <h3>“Uyga keldi” jumlasida fe’l qaysi?</h3>
+  <label><input type="radio" name="q50" value="A" />  Uyga</label><br>
+  <label><input type="radio" name="q50" value="B" data-correct="true" />  Keldi</label><br>
+  <label><input type="radio" name="q50" value="C" /> Uy</label><br>
+  <label><input type="radio" name="q50" value="D" />  -ga</label><br>
+</div>
+
+
+
+  <script>
+    let correctAnswers = {};
+
+    function showRandomTests() {
+      const testArea = document.getElementById('testArea');
+      const indicatorArea = document.getElementById('indicatorArea');
+      const summary = document.getElementById('summary');
+      const resultSection = document.getElementById('resultSection');
+      const resultButton = document.getElementById('resultButton');
+      testArea.innerHTML = '';
+      indicatorArea.innerHTML = '';
+      summary.innerHTML = '';
+      resultSection.style.display = 'none';
+      correctAnswers = {};
+      resultButton.classList.add('disabled');
+      resultButton.disabled = true;
+
+      const allQuestions = Array.from(document.querySelectorAll('#allQuestions .question'));
+      const selected = allQuestions.sort(() => Math.random() - 0.5).slice(0, 20);
+
+      selected.forEach((q, i) => {
+        const clone = q.cloneNode(true);
+        clone.dataset.index = i;
+        clone.id = 'question-' + i;
+        testArea.appendChild(clone);
+
+        const inputs = clone.querySelectorAll('input[type="radio"]');
+        inputs.forEach(input => {
+          if (input.dataset.correct === "true") correctAnswers[i] = input.value;
+          input.addEventListener('change', checkCompletion);
+        });
+      });
+      indicatorArea.innerHTML = '';
+      const row1 = document.createElement('div');
+      const row2 = document.createElement('div');
+      row1.classList.add('indicator-row');
+      row2.classList.add('indicator-row');
+
+      for (let i = 0; i < 20; i++) {
+        const number = document.createElement('div');
+        number.classList.add('number');
+        number.textContent = i + 1;
+        number.dataset.index = i; 
+        number.onclick = () => document.getElementById('question-' + i).scrollIntoView({behavior: 'smooth'});
+        if (i < 10) {
+          row1.appendChild(number);
+        } else {
+          row2.appendChild(number);
+        }
+      }
+      indicatorArea.appendChild(row1);
+      indicatorArea.appendChild(row2);
+    }
+
+    function checkCompletion() {
+      const resultButton = document.getElementById('resultButton');
+      const checkedInputs = document.querySelectorAll('input[type="radio"]:checked');
+      const numbers = document.querySelectorAll('.number');
+
+     
+      numbers.forEach(number => number.classList.remove('active'));
+      checkedInputs.forEach(input => {
+        const questionIndex = input.closest('.question').dataset.index;
+        const number = document.querySelector(`.number[data-index="${questionIndex}"]`);
+        if (number) number.classList.add('active');
+      });
+
+      if (checkedInputs.length === 20) {
+        resultButton.classList.remove('disabled');
+        resultButton.disabled = false;
+      }
+    }
+
+    function calculateResult() {
+      let correct = 0;
+      let incorrect = 0;
+
+      for (let i = 0; i < 20; i++) {
+        const selected = document.querySelector(`#question-${i} input[type=radio]:checked`);
+        if (selected && selected.dataset.correct === "true") {
+          correct++;
+        } else if (selected && selected.dataset.correct !== "true") {
+          incorrect++;
+        }
+      }
+      const percent = Math.round((correct / 20) * 100);
+      const summary = document.getElementById('summary');
+      const resultSection = document.getElementById('resultSection');
+      resultSection.style.display = 'block';
+      let message = `
+        <strong>To‘g‘ri javoblar:</strong> ${correct}<br>
+        <strong>Noto‘g‘ri javoblar:</strong> ${incorrect}<br>
+        <strong>Foiz:</strong> ${percent}%
+      `;
+      if (percent < 80) {
+        message += '<br><strong>Siz TDK o\'quv markazida taqsil olishingiz kerak!</strong>';
+      }
+      summary.innerHTML = message;
+    }
+
+    window.onload = showRandomTests;
+  </script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asosiy So'zlar — English Basics</title>
+  <style>
+    :root{
+      --bg1: #f5f7fa;
+      --bg2: #c3cfe2;
+      --card:#ffffff;
+      --accent:#3498db;
+      --muted:#6b7280;
+      --radius:15px;
+      --highlight-bg: #e6f3ff;
+      --table-header: #f0f8ff;
+      --table-hover: #f9fafb;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;padding:0;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;background:linear-gradient(135deg,var(--bg1),var(--bg2));color:#2c3e50;-webkit-font-smoothing:antialiased}
+    .wrap{max-width:1100px;margin:40px auto;padding:30px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:20px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#2ecc71);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;box-shadow:0 6px 18px rgba(52,152,219,0.18)}
+    h1{font-size:30px;margin:0;color:#34495e}
+    nav a{margin-left:14px;color:var(--muted);text-decoration:none;font-weight:600}
+    .container{background:var(--card);padding:36px;border-radius:var(--radius);box-shadow:0 12px 30px rgba(44,62,80,0.07);animation:fadeIn .8s ease-in-out}
+    .lead{font-size:18px;line-height:1.7;text-align:center;color:#2f4150;margin-bottom:20px}
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:26px}
+    .card{background:#fbfdff;border-radius:12px;padding:18px;margin-bottom:18px;box-shadow:0 8px 20px rgba(12,30,50,0.03)}
+    .section-title{font-size:20px;color:#2c3e50;margin-bottom:10px}
+    .highlight{background:#ecf0f1;padding:14px 18px;border-left:6px solid var(--accent);border-radius:8px;margin:14px 0}
+    table{width:100%;border-collapse:collapse;margin-top:10px}
+    th,td{padding:12px;border:1px solid #eef5fb;text-align:left;transition:background 0.3s}
+    th{background:var(--table-header);color:#2c3e50;font-weight:600}
+    td{background:#fff}
+    tr:hover td{background:var(--table-hover)}
+    .daily-phrases th, .daily-phrases td{padding:14px;font-size:15px}
+    .daily-phrases th{background:linear-gradient(135deg, var(--accent), #2980b9);color:#fff;border:none}
+    .daily-phrases tr:nth-child(even) td{background:#f8fbff}
+    .daily-phrases tr:hover td{background:#e6f3ff;transform:scale(1.01);transition:transform 0.2s, background 0.3s}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#f0f8ff;border:1px solid #e6f3ff;margin:4px}
+    aside .card{position:sticky;top:28px}
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:14px}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}.logo{width:56px;height:56px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">TDK</div>
+        <div>
+          <h1>Asosiy So'zlar — English Basics</h1>
+          <div style="color:var(--muted);font-size:13px">Eng ko'p ishlatiladigan so'zlar va amaliy iboralar</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#greetings">Salomlashish</a>
+        <a href="#daily-phrases">Kundalik iboralar</a>
+        <a href="#days">Kunlar</a>
+        <a href="#colors">Ranglar</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <p class="lead">Ushbu sahifa ingliz tilidagi eng kerakli va asosiy so‘zlar hamda oddiy iboralarni jamlagan. Har bir bo‘limda inglizcha so‘z — tarjima — talaffuz misol ko‘rsatilgan.</p>
+
+      <div class="grid">
+        <main>
+          <section id="greetings" class="card">
+            <div class="section-title">Salomlashish va asosiy iboralar</div>
+            <table>
+              <thead><tr><th>English</th><th>O'zbekcha</th><th>Pronunciation (yaqin)</th></tr></thead>
+              <tbody>
+                <tr><td>Hello</td><td>Salom</td><td>hə-LOʊ</td></tr>
+                <tr><td>Hi</td><td>Salom (oddiy)</td><td>haɪ</td></tr>
+                <tr><td>Good morning</td><td>Xayrli tong</td><td>gʊd ˈmɔrnɪŋ</td></tr>
+                <tr><td>Good night</td><td>Xayrli tun</td><td>gʊd naɪt</td></tr>
+                <tr><td>How are you?</td><td>Qalaysiz?</td><td>haʊ ɑr juː</td></tr>
+                <tr><td>Thank you</td><td>Rahmat</td><td>θæŋk juː</td></tr>
+                <tr><td>Please</td><td>Iltimos</td><td>pliːz</td></tr>
+                <tr><td>Sorry</td><td>Kechirasiz</td><td>ˈsɒri / ˈsɔːri</td></tr>
+              </tbody>
+            </table>
+            <div class="highlight">Maslahat: iboralarni kontekstda yodlang — masalan, <span class="pill">Hello</span> — telefon suhbati yoki uchrashuvda boshida ishlatiladi.</div>
+          </section>
+
+          <section id="daily-phrases" class="card">
+            <div class="section-title">Kundalik hayotda kerakli iboralar</div>
+            <table class="daily-phrases">
+              <thead><tr><th>English</th><th>O'zbekcha</th></tr></thead>
+              <tbody>
+                <tr><td>Can you help me?</td><td>Menga yordam bera olasizmi?</td></tr>
+                <tr><td>Where is the bathroom?</td><td>Hojatxona qayerda?</td></tr>
+                <tr><td>How much is this?</td><td>Bu qancha turadi?</td></tr>
+                <tr><td>I’m hungry.</td><td>Men ochqadim.</td></tr>
+                <tr><td>Can I have water?</td><td>Suv olsam bo'ladi?</td></tr>
+                <tr><td>What time is it?</td><td>Soat necha?</td></tr>
+                <tr><td>I don’t understand.</td><td>Tushunmadim.</td></tr>
+                <tr><td>Where are you from?</td><td>Qayerdansiz?</td></tr>
+                <tr><td>Excuse me.</td><td>Kechirasiz.</td></tr>
+                <tr><td>I’m lost.</td><td>Men adashdim.</td></tr>
+              </tbody>
+            </table>
+            <div class="highlight">Maslahat: Ushbu iboralarni kundalik suhbatlarda ishlatib, talaffuz va kontekstni mashq qiling.</div>
+          </section>
+
+          <section id="days" class="card">
+            <div class="section-title">Kunlar va vaqt</div>
+            <table>
+              <thead><tr><th>English</th><th>O'zbekcha</th></tr></thead>
+              <tbody>
+                <tr><td>Monday</td><td>Dushanba</td></tr>
+                <tr><td>Tuesday</td><td>Seshanba</td></tr>
+                <tr><td>Wednesday</td><td>Chorshanba</td></tr>
+                <tr><td>Thursday</td><td>Payshanba</td></tr>
+                <tr><td>Friday</td><td>Juma</td></tr>
+                <tr><td>Saturday</td><td>Shanba</td></tr>
+                <tr><td>Sunday</td><td>Yakshanba</td></tr>
+              </tbody>
+            </table>
+            <div class="highlight">Maslahat: kun nomlarini to'g'ri talaffuz qilish uchun ovozli mashqlar bajaring — masalan, "Wednesday" /ˈwɛnzdeɪ/.</div>
+          </section>
+
+          <section id="colors" class="card">
+            <div class="section-title">Ranglar</div>
+            <table>
+              <thead><tr><th>English</th><th>O'zbekcha</th></tr></thead>
+              <tbody>
+                <tr><td>Red</td><td>Qizil</td></tr>
+                <tr><td>Blue</td><td>Moviy</td></tr>
+                <tr><td>Green</td><td>Yashil</td></tr>
+                <tr><td>Yellow</td><td>Sariq</td></tr>
+                <tr><td>Black</td><td>Qora</td></tr>
+                <tr><td>White</td><td>Oq</td></tr>
+                <tr><td>Brown</td><td>Jigar rang</td></tr>
+                <tr><td>Orange</td><td>To'q sariq</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="common" class="card">
+            <div class="section-title">Oilaviy va kundalik so'zlar</div>
+            <table>
+              <thead><tr><th>English</th><th>O'zbekcha</th></tr></thead>
+              <tbody>
+                <tr><td>Mother / Mom</td><td>Ona / Ona</td></tr>
+                <tr><td>Father / Dad</td><td>Ata / Dad</td></tr>
+                <tr><td>Brother</td><td>Opa/uka (aka)</td></tr>
+                <tr><td>Sister</td><td>Opa</td></tr>
+                <tr><td>House</td><td>Uy</td></tr>
+                <tr><td>School</td><td>Maktab</td></tr>
+                <tr><td>Food</td><td>Oziq-ovqat</td></tr>
+                <tr><td>Water</td><td>Suv</td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="phrases" class="card">
+            <div class="section-title">Foydali iboralar</div>
+            <ul>
+              <li><strong>What's your name?</strong> — Ismingiz nima?</li>
+              <li><strong>My name is...</strong> — Mening ismim ...</li>
+              <li><strong>Where are you from?</strong> — Qayerdansiz?</li>
+              <li><strong>I don't understand.</strong> — Tushunmadim.</li>
+              <li><strong>Can you help me?</strong> — Menga yordam bera olasizmi?</li>
+            </ul>
+          </section>
+
+          <section id="practice" class="card">
+            <div class="section-title">Mashqlar</div>
+            <ol>
+              <li>Har kuni 10 ta yangi so'zni talaffuz bilan yodlang va gapda ishlatishga harakat qiling.</li>
+              <li>O'zingiz haqingizda ingliz tilida 3-4 jumla yozing (ism, yosh, qayerdansiz).</li>
+              <li>Oila va ranglar bo'yicha kichik test tuzing — do'stlaringiz bilan mashq qiling.</li>
+            </ol>
+          </section>
+
+          <section id="recommendations" class="card">
+            <div class="section-title">Tavsiyalar</div>
+            <ul>
+              <li>Kuniga ingliz tilida kamida 5 dona so'z yod oling! Bu kamdek ko'rinishi mumkin ammo, yillar davomida sizning so'z boyligingiz oshib boradi!</li>
+            </ul>
+          </section>
+
+        </main>
+
+        <aside>
+          <div class="card">
+            <div class="section-title">Tez eslatma</div>
+            <ul>
+              <li>Talaffuzga e'tibor bering — yozish va talaffuz har doim mos kelmaydi.</li>
+              <li>Kundalik foydalanish so'zlarini takrorlash — tez o'rganishning eng yaxshi usuli.</li>
+              <li>Audio manbalardan foydalaning: Forvo, BBC Learning English.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="section-title">Qisqa lug'at</div>
+            <div class="pill">Hello — Salom</div>
+            <div class="pill">Thank you — Rahmat</div>
+            <div class="pill">Please — Iltimos</div>
+            <div class="pill">Yes / No — Ha / Yo'q</div>
+          </div>
+
+          <div class="card">
+            <div class="section-title">Foydali resurslar</div>
+            <ul>
+              <li>Duolingo — boshlovchilar uchun</li>
+              <li>BBC Learning English — talaffuz va iboralar</li>
+              <li>Oxford Learner's Dictionaries — so'z ma'nolari va talaffuz</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+      <footer>© 2025 TDK – Taʼlim Dunyo Kaliti. Barcha huquqlar himoyalangan.</footer>
+    </div>
+  </div>
+</body>
+</html>

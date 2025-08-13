@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Mantiqiy Masalalar</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+      color: #2c3e50;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      color: #34495e;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .highlight {
+      background: #ecf0f1;
+      padding: 10px 15px;
+      border-left: 5px solid #3498db;
+      margin: 20px 0;
+      border-radius: 5px;
+    }
+
+    .answer-section {
+      margin-top: 15px;
+      padding: 10px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .answer-section label {
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .answer-section input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    .answer-section input[type="text"]:focus {
+      outline: none;
+      border-color: #3498db;
+      box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+    }
+
+    .check-btn {
+      margin-top: 10px;
+      padding: 6px 15px;
+      font-size: 15px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .check-btn:hover {
+      background-color: #2980b9;
+    }
+
+    .result {
+      margin-top: 8px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Mantiqiy Masalalar</h1>
+
+    <p>Quyidagi mantiqiy masalalarni o'qib, javobini topishga harakat qiling:</p>
+
+    <div class="highlight">
+      <strong>1. Masala:</strong> Yilning qaysi oyi 28 kundan iborat? <br>
+      <div class="answer-section">
+        <label>Javob:</label>
+        <input type="text">
+        <button class="check-btn" onclick="checkAnswer(this, 'hammasi')">To'g'ri javob</button>
+        <div class="result"></div>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <strong>2. Masala:</strong> Qaysi narsani sindirmasdan ichish mumkin? <br>
+      <div class="answer-section">
+        <label>Javob:</label>
+        <input type="text">
+        <button class="check-btn" onclick="checkAnswer(this, 'sukut')">To'g'ri javob</button>
+        <div class="result"></div>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <strong>3. Masala:</strong> Uni olsang, yana ko'payadi. U nima? <br>
+      <div class="answer-section">
+        <label>Javob:</label>
+        <input type="text">
+        <button class="check-btn" onclick="checkAnswer(this, 'yolgon')">To'g'ri javob</button>
+        <div class="result"></div>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <strong>4. Masala:</strong> Uyda beshta sham yonmoqda. Ikkitasi o‘chdi. Nechta sham qoladi? <br>
+      <div class="answer-section">
+        <label>Javob:</label>
+        <input type="text">
+        <button class="check-btn" onclick="checkAnswer(this, '2')">To'g'ri javob</button>
+        <div class="result"></div>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <strong>5. Masala:</strong> Hamma uni ko‘radi, ammo ushlay olmaydi. Bu nima? <br>
+      <div class="answer-section">
+        <label>Javob:</label>
+        <input type="text">
+        <button class="check-btn" onclick="checkAnswer(this, 'soyabon')">To'g'ri javob</button>
+        <div class="result"></div>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <strong>6. Masala:</strong> Boshida sariq, o‘rtasi oq, ichida qora. Bu nima? <br>
+      <div class="answer-section">
+        <label>Javob:</label>
+        <input type="text">
+        <button class="check-btn" onclick="checkAnswer(this, 'tuxum')">To'g'ri javob</button>
+        <div class="result"></div>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <strong>7. Masala:</strong> Uni yerga qo‘ysang, u o‘zini yuqoriga tortadi. Bu nima? <br>
+      <div class="answer-section">
+        <label>Javob:</label>
+        <input type="text">
+        <button class="check-btn" onclick="checkAnswer(this, 'magnit')">To'g'ri javob</button>
+        <div class="result"></div>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <strong>8. Masala:</strong> Qishda oq, yozda yashil. Bu nima? <br>
+      <div class="answer-section">
+        <label>Javob:</label>
+        <input type="text">
+        <button class="check-btn" onclick="checkAnswer(this, 'archa')">To'g'ri javob</button>
+        <div class="result"></div>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <strong>9. Masala:</strong> Oyoqlari bor, lekin yurmaydi. Bu nima? <br>
+      <div class="answer-section">
+        <label>Javob:</label>
+        <input type="text">
+        <button class="check-btn" onclick="checkAnswer(this, 'stul')">To'g'ri javob</button>
+        <div class="result"></div>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <strong>10. Masala:</strong> Qaysi so‘zda 5ta harf bor, lekin u 1ta narsa? <br>
+      <div class="answer-section">
+        <label>Javob:</label>
+        <input type="text">
+        <button class="check-btn" onclick="checkAnswer(this, 'beshik')">To'g'ri javob</button>
+        <div class="result"></div>
+      </div>
+    </div>
+
+    <p>Barakalla! Har kuni shu kabi savollarga javob topishga urinib ko‘ring!</p>
+  </div>
+
+  <footer>
+    © 2025 TDK – Taʼlim Dunyo Kaliti. Barcha huquqlar himoyalangan.
+  </footer>
+
+  <script>
+    // Asl funksiya: Javobni tekshirish
+    function checkAnswer(button, correctAnswer) {
+      const input = button.previousElementSibling;
+      const resultDiv = button.nextElementSibling;
+      const userAnswer = input.value.trim().toLowerCase();
+
+      if (userAnswer === correctAnswer.toLowerCase()) {
+        resultDiv.textContent = "✅ Barakalla, to‘g‘ri topdingiz!";
+        resultDiv.style.color = "green";
+      } else {
+        resultDiv.textContent = "❌ Xato! Chuqurroq o'ylang.";
+        resultDiv.style.color = "red";
+      }
+    }
+
+    // Qo'shimcha: Real vaqtda matnni tozalash va kichik harflarga aylantirish
+    document.querySelectorAll('input[type="text"]').forEach(input => {
+      input.addEventListener('input', function() {
+        this.value = this.value.trim().toLowerCase();
+      });
+    });
+  </script>
+
+</body>
+</html>

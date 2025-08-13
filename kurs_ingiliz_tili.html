@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Kurslarimiz</title>
+  <style>
+    
+    body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #eef2f3, #8e9eab);
+}
+
+.kurs {
+  max-width: 1300px;
+  margin: 60px auto;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.kurs h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+  color: #222;
+  position: relative;
+}
+
+.kurs h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #3498db;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.mavzular-uchta {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.mavzu {
+  flex: 1;
+  min-width: 300px;
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.mavzu:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.mavzu img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.mavzu:hover img {
+  transform: scale(1.08);
+}
+
+.mavzu h3 {
+  margin: 0;
+  padding: 16px 10px;
+  font-size: 20px;
+  text-align: center;
+  color: #2c3e50;
+  background: linear-gradient(to right, #ecf0f1, #dfe6e9);
+  font-weight: 600;
+  border-top: 1px solid #ddd;
+  transition: background 0.3s ease;
+}
+
+.mavzu:hover h3 {
+  background: linear-gradient(to right, #3498db, #2980b9);
+  color: #fff;
+}
+
+/* Kirish animatsiyasi */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <div class="kurs">
+  <h2>Ingliz Tili Kursi</h2>
+  <div class="mavzular-uchta">
+    <h1>
+      Mavzular:
+    </h1>
+    <div class="mavzu">
+      <img src="https://static.vecteezy.com/system/resources/previews/007/078/390/non_2x/the-letters-abc-in-doodle-style-hand-drawn-colorful-illustration-design-elements-are-isolated-on-a-white-background-vector.jpg" alt="Alphabet">
+      <h3> <a href="ingiliz_tili_ingiliz_alifbosi.html">1. Ingliz Alifbosi</a></h3>
+    </div>
+    <div class="mavzu">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ17f2GUchm8Dvcn5dTlYafLr7s0DVnveoDBQ&s" alt="Vocabulary">
+      <h3> <a href="ingiliz_tili_asosiy_sozlar.html"> 2. Asosiy So'zlar</a></h3>
+    </div>
+    <div class="mavzu">
+      <img src="https://i0.wp.com/hasanboy.uz/wp-content/uploads/2017/07/grammar.png?ssl=1" alt="Grammar">
+      <h3> <a href="ingiliz_tili_oddiy_grmatik_qoidalar.html">3. Oddiy Grammatik Qoidalar</a></h3>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('contextmenu', event => event.preventDefault());
+
+  // Ctrl+S, Ctrl+U, F12 va boshqa tugmalarni bloklash
+  document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && (e.key === 's' || e.key === 'u' || e.key === 'Shift')) e.preventDefault();
+    if (e.key === 'F12') e.preventDefault();
+    if (e.ctrlKey && e.shiftKey && e.key === 'I') e.preventDefault();
+  });
+
+  // Print Screen tugmasini bosganda rasm o'rniga qora fon qilish
+  document.addEventListener('keyup', function(e) {
+    if (e.key === 'PrintScreen') {
+      navigator.clipboard.writeText('');
+      alert("Screenshot olish taqiqlangan!");
+    }
+  });
+</script>
+</body>
+</html>

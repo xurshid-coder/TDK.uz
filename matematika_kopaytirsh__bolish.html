@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ko‘paytirish va Bo‘lish — Matematika</title>
+    <style>
+        :root{
+          --bg1:#f5f7fa; --bg2:#c3cfe2; --card:#ffffff; --accent:#3498db; --muted:#6b7280; --radius:15px; --table-border:#e6f3ff
+        }
+        *{box-sizing:border-box}
+        body{margin:0;padding:0;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;background:linear-gradient(135deg,var(--bg1),var(--bg2));color:#2c3e50}
+        .wrap{max-width:1100px;margin:40px auto;padding:30px}
+        header{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:20px}
+        .brand{display:flex;align-items:center;gap:14px}
+        .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#2ecc71);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;box-shadow:0 6px 18px rgba(52,152,219,0.18)}
+        h1{font-size:30px;margin:0;color:#34495e}
+        nav a{margin-left:14px;color:var(--muted);text-decoration:none;font-weight:600}
+        .container{background:var(--card);padding:36px;border-radius:var(--radius);box-shadow:0 12px 30px rgba(44,62,80,0.07);animation:fadeIn .8s ease-in-out}
+        .lead{font-size:18px;line-height:1.7;text-align:center;color:#2f4150;margin-bottom:20px}
+        .grid{display:grid;grid-template-columns:1fr 340px;gap:26px}
+        .card{background:#fbfdff;border-radius:12px;padding:18px;margin-bottom:18px;box-shadow:0 8px 20px rgba(12,30,50,0.03)}
+        .section-title{font-size:20px;color:#2c3e50;margin-bottom:10px}
+        .highlight{background:#ecf0f1;padding:14px 18px;border-left:6px solid var(--accent);border-radius:8px;margin:14px 0}
+        pre{background:#0b1220;color:#e6f1ff;padding:12px;border-radius:8px;overflow:auto;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco,'Roboto Mono','Courier New',monospace}
+        table{width:100%;border-collapse:collapse;margin-top:10px}
+        th,td{padding:10px;border-bottom:1px solid var(--table-border);text-align:left}
+        thead th{background:linear-gradient(90deg,#f7fbff,#eef8ff);font-weight:700}
+        ul{line-height:1.7}
+        .formula{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace;background:#f4f9ff;padding:10px;border-radius:8px;border:1px solid #e6f3ff}
+        aside .card{position:sticky;top:28px}
+        footer{margin-top:28px;text-align:center;color:var(--muted);font-size:14px}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+        @media(max-width:900px){.grid{grid-template-columns:1fr}.logo{width:56px;height:56px}}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <div class="brand">
+                <div class="logo">TDK</div>
+                <h1>Ko‘paytirish va Bo‘lish</h1>
+            </div>
+            <nav>
+                <a href="#">Asosiy Xususiyatlar</a>
+                <a href="#">Misollar</a>
+                <a href="#">Masalalar</a>
+            </nav>
+        </header>
+        <div class="container">
+            <p class="lead">Ushbu sahifa ko‘paytirish va bo‘lish operatsiyalari haqida. Ta’rif, asosiy xususiyatlar, amaliy misollar va masalalar topasiz. Qisqacha, sodda va boshlang‘ich talabalar uchun mos.</p>
+            <div class="grid">
+                <main>
+                    <div class="card">
+                        <h2 class="section-title">Ko‘paytirish va bo‘lish nima?</h2>
+                        <p>Ko‘paytirish va bo‘lish — bu sonlar bilan ishlatiladigan asosiy matematik operatsiyalar. Odatda ularni quyidagi belgilar bilan belgilashadi:</p>
+                        <div class="highlight">
+                            Ta’rif: Ko‘paytirish (×) bir sonni boshqasi bilan bir nechta marta qo‘shishni anglatadi. Bo‘lish (÷) bir sonni boshqa son qismiga ajratishni anglatadi.<br>
+                            Misol: 2 × 3 = 6, 6 ÷ 2 = 3.
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h2 class="section-title">Eslatma</h2>
+                        <div class="highlight">
+                            Eslatma: Ushbu sahifa natural sonlar bilan ishlashni o‘rganish uchun boshlanadi — ya’ni 0 ga bo‘lishda ehtiyot bo‘lish kerak. Agar xohlasangiz, 0 ni ham qo‘shib ko‘rsataman.
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h2 class="section-title">Tez eslatmalar</h2>
+                        <ul>
+                            <li>Ko‘paytirishda har doim natija musbat bo‘ladi, agar ikkala son ham musbat bo‘lsa.</li>
+                            <li>Bo‘lishda natija butun son bo‘lmasligi mumkin — qoldiq hisoblash muhim.</li>
+                            <li>Progressiyalar va darajalar bilan ishlashda ko‘paytirish va bo‘lish asosiy qism bo‘ladi.</li>
+                        </ul>
+                    </div>
+                </main>
+                <aside>
+                    <div class="card">
+                        <h2 class="section-title">Ko‘paytirish va bo‘lish resurslari</h2>
+                        <ul>
+                            <li>Khan Academy — ko‘paytirish va bo‘lish asoslari</li>
+                            <li>Brilliant.org — fundamentals</li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <footer>
+            <p>© 2025 TDK Matematika</p>
+        </footer>
+    </div>
+</body>
+</html>

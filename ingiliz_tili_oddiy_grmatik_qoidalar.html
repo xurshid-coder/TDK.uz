@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oddiy Grammatik Qoidalar — English Grammar</title>
+  <style>
+    :root{
+      --bg1:#f5f7fa;--bg2:#c3cfe2;--card:#ffffff;--accent:#3498db;--muted:#6b7280;--radius:15px;--table-border:#e6f3ff
+    }
+    *{box-sizing:border-box}
+    body{margin:0;padding:0;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;background:linear-gradient(135deg,var(--bg1),var(--bg2));color:#2c3e50}
+    .wrap{max-width:1100px;margin:40px auto;padding:30px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:20px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#2ecc71);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;box-shadow:0 6px 18px rgba(52,152,219,0.18)}
+    h1{font-size:30px;margin:0;color:#34495e}
+    nav a{margin-left:14px;color:var(--muted);text-decoration:none;font-weight:600}
+    .container{background:var(--card);padding:36px;border-radius:var(--radius);box-shadow:0 12px 30px rgba(44,62,80,0.07);animation:fadeIn .8s ease-in-out}
+    .lead{font-size:18px;line-height:1.7;text-align:center;color:#2f4150;margin-bottom:18px}
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:26px}
+    .card{background:#fbfdff;border-radius:12px;padding:18px;margin-bottom:18px;box-shadow:0 8px 20px rgba(12,30,50,0.03)}
+    .section-title{font-size:20px;color:#2c3e50;margin-bottom:10px}
+    .highlight{background:#ecf0f1;padding:14px 18px;border-left:6px solid var(--accent);border-radius:8px;margin:14px 0}
+    pre{background:#0b1220;color:#e6f1ff;padding:12px;border-radius:8px;overflow:auto;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco,'Roboto Mono','Courier New',monospace}
+    table{width:100%;border-collapse:collapse;margin-top:10px}
+    th,td{padding:10px;border-bottom:1px solid var(--table-border);text-align:left}
+    thead th{background:linear-gradient(90deg,#f7fbff,#eef8ff);font-weight:700}
+    ul{line-height:1.7}
+    aside .card{position:sticky;top:28px}
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:14px}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}.logo{width:56px;height:56px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">TDK</div>
+        <div>
+          <h1>Oddiy Grammatik Qoidalar</h1>
+          <div style="color:var(--muted);font-size:13px">Ingliz tilining asosiy grammatik qoidalari — sodda va amaliy</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#parts">Bo'limlar</a>
+        <a href="#tenses">Zamonaviy (Tenses)</a>
+        <a href="#articles">Articles</a>
+        <a href="#questions">Savollar & Negatsiya</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <p class="lead">Bu sahifa ingliz tilining eng kerakli grammatik qoidalarini soddalashtirilgan shaklda beradi — parts of speech, tenses, articles, questions, negation, prepositions va oddiy mashqlar bilan.</p>
+
+      <div class="grid">
+        <main>
+
+          <section id="parts" class="card">
+            <div class="section-title">Parts of speech (So'z turkumlari)</div>
+            <ul>
+              <li><strong>Noun</strong> — ism (person, place, thing): <em>cat, city, book</em>.</li>
+              <li><strong>Pronoun</strong> — olmosh: <em>I, you, he, she, it, we, they</em>.</li>
+              <li><strong>Verb</strong> — fe'l: <em>go, eat, be, have</em>.</li>
+              <li><strong>Adjective</strong> — sifat: <em>big, small, beautiful</em>.</li>
+              <li><strong>Adverb</strong> — ravish: <em>quickly, very, often</em>.</li>
+              <li><strong>Preposition</strong> — qarama-qarshilik: <em>in, on, at</em>.</li>
+              <li><strong>Conjunction</strong> — bog'lovchi: <em>and, but, or</em>.</li>
+              <li><strong>Interjection</strong> — hayrat: <em>Wow!, Oh!</em>.</li>
+            </ul>
+            <div class="highlight">Maslahat: so'z turkumini bilish gap tuzishda yordam beradi — masalan, sifatlar (adjectives) odatda noun oldida keladi: <code>big house</code>.</div>
+          </section>
+
+          <section id="tenses" class="card">
+            <div class="section-title">Oddiy zamonlar (Simple Tenses)</div>
+
+            <h4>Simple Present — hozirgi oddiy</h4>
+            <p>Oddiy odatlar yoki umumiy haqiqatlar uchun.</p>
+            <pre><code>I/You/We/They + verb
+He/She/It + verb(s/es)
+
+Examples:
+I eat breakfast. / He eats breakfast.</code></pre>
+
+            <h4>Simple Past — o'tgan oddiy</h4>
+            <p>O'tgan vaqt haqidagi harakatlar uchun.</p>
+            <pre><code>Subject + verb (past form)
+
+Examples:
+She visited her friend yesterday. (visit -> visited)</code></pre>
+
+            <h4>Simple Future — kelasi oddiy</h4>
+            <p>Kelajakdagi niyatlar yoki voqealar uchun.</p>
+            <pre><code>Subject + will + base verb
+
+Examples:
+They will come tomorrow.</code></pre>
+
+            <div class="highlight">Maslahat: Boshlovchilar uchun avvalo ushbu uch zamonni mustahkamlash foydali — keyin boshqa continuous yoki perfect turlarga o'ting.</div>
+          </section>
+
+          <section id="articles" class="card">
+            <div class="section-title">Articles (a, an, the)</div>
+            <table>
+              <thead><tr><th>Article</th><th>Qachon ishlatiladi</th></tr></thead>
+              <tbody>
+                <tr><td><strong>a / an</strong></td><td>Umumiy, hisobli, biror narsa haqida boshlang'ich ma'lumot: <em>a dog, an apple</em> (an — unli tovushdan oldin).</td></tr>
+                <tr><td><strong>the</strong></td><td>Aniq narsa — oldin aytilgan yoki kontekstda ma'lum bo'lsa: <em>the book on the table</em>.</td></tr>
+                <tr><td><strong>zero article</strong></td><td>Umumiy nomlar yoki noaniq ko'pchalik: <em>Water is essential.</em></td></tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section id="questions" class="card">
+            <div class="section-title">Savollar va inkorlar (Questions & Negation)</div>
+
+            <h4>Oddiy savol</h4>
+            <pre><code>Do/Does + subject + verb?
+Did + subject + verb (past)?
+Will + subject + verb?</code></pre>
+            <p>Examples: <em>Do you like tea? Does she work here? Did they come? Will he call?</em></p>
+
+            <h4>Negation</h4>
+            <pre><code>Don't / Doesn't (present)
+Didn't (past)
+Will not / won't (future)
+
+I don't like coffee. He doesn't play football. They didn't come.</code></pre>
+
+            <div class="highlight">Eslatma: "doesn't" uchun verbning asosiy shakli (base) ishlatiladi: <code>He doesn't go</code> (not 'goes').</div>
+          </section>
+
+          <section id="prepositions" class="card">
+            <div class="section-title">Prepositions (joy va vaqt)</div>
+            <table>
+              <thead><tr><th>Preposition</th><th>Misol</th></tr></thead>
+              <tbody>
+                <tr><td>in</td><td>in the room, in July</td></tr>
+                <tr><td>on</td><td>on the table, on Monday</td></tr>
+                <tr><td>at</td><td>at the bus stop, at 5 pm</td></tr>
+              </tbody>
+            </table>
+            <div class="highlight">Maslahat: vaqt uchun 'in' oylar va yillar, 'on' kunlar, 'at' aniq vaqtlar bilan ishlatiladi.</div>
+          </section>
+
+          <section id="agreement" class="card">
+            <div class="section-title">Subject-Verb Agreement</div>
+            <p>Subject va verb orasida kelishuv bo'lishi kerak — singular subject bilan singular verb (He/She/It qo'shimcha -s bilan), plural bilan basic form.</p>
+            <pre><code>She walks. / They walk.
+The dog barks. / The dogs bark.</code></pre>
+          </section>
+
+          <section id="punct" class="card">
+            <div class="section-title">Punctuation (Tinishing belgilar)</div>
+            <ul>
+              <li>Period (.) — gap oxiri.</li>
+              <li>Question mark (?) — savol.</li>
+              <li>Comma (,) — ro'yxat yoki ichki qo'shimchalar.</li>
+              <li>Apostrophe (') — egallik: <em>John's book</em>, yoki qisqartmalar: <em>I'm</em>.</li>
+            </ul>
+          </section>
+
+          <section id="exercises" class="card">
+            <div class="section-title">Mashqlar</div>
+            <ol>
+              <li>To'ldiring: I ____ (go) to school yesterday. (past tense)</li>
+              <li>Tanlang: She (go/goes) to work every day.</li>
+              <li>Inkor qiling: They play football. → __________</li>
+              <li>Savol yozing: You are happy. → __________?</li>
+            </ol>
+            <div class="highlight">Ushbu mashqlarni ishlash orqali ingliz tilidagi bilimlaringizni mustaxkamlab boring!</div>
+          </section>
+
+        </main>
+
+        <aside>
+          <div class="card">
+            <div class="section-title">Quick tips</div>
+            <ul>
+              <li>Har kuni 10 ta oddiy gap yozing (present, past, future).</li>
+              <li>Oddiy zamonlarni o‘rganib chiqqach, continuous va perfectga o'ting.</li>
+              <li>O'qish va gapirishni birga mashq qiling — grammar amalda yaxshi o'rganiladi.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="section-title">Qisqacha xotira</div>
+            <ul>
+              <li>Simple Present — odat/haqiqat</li>
+              <li>Simple Past — o‘tgan voqea</li>
+              <li>Simple Future — kelajak</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="section-title">Resurslar</div>
+            <ul>
+              <li>BBC Learning English</li>
+              <li>Oxford Learner's</li>
+              <li>EnglishPage — oddiy mashqlar</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+      <footer>© 2025 TDK – Taʼlim Dunyo Kaliti. Barcha huquqlar himoyalangan.</footer>
+    </div>
+  </div>
+</body>
+</html>

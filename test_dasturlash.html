@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TDK Online Test</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f8ff;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      text-align: center;
+      color: #003366;
+      margin-bottom: 10px;
+    }
+    .main-wrapper {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      max-width: 1300px;
+      justify-content: space-between;
+    }
+    .left-section {
+      flex: 1;
+      margin-right: 30px; /* oraliq 3 sm */
+    }
+    .right-section {
+      width: 420px; /* kengroq bo‘lim */
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      height: fit-content;
+      position: sticky;
+      top: 20px;
+      margin-right: 30px;
+    }
+    .fixed-indicators {
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto 20px auto;
+      padding: 20px;
+      background-color: #f1f5ff;
+      border-radius: 12px;
+      box-sizing: border-box;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .indicator-row {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .number {
+    width: 50px;
+    height: 30px;
+    background-color: #ddd;
+    border-radius:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    font-size: 17px;
+    transition: background-color 0.3s;
+    }
+    .number.active {
+      background-color: #0077cc;
+      color: #fff;
+    }
+    .test-box {
+      width: 100%;
+      max-width: 800px;
+      max-height: 75vh;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+    .question {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      border-radius: 10s0px;
+      scroll-margin-top: 100px;
+    }
+    .question h3 {
+      margin-bottom: 10px;
+    }
+    .question label {
+      display: block;
+      margin: 5px 0;
+    }
+    button {
+      display: inline-block;
+      margin: 20px 10px;
+      background-color: #0077cc;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    button.disabled {
+      background-color: #a3bffa;
+      cursor: not-allowed;
+    }
+    #summary {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #003366;
+      margin-top: 10px;
+    }
+    #resultSection {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>TDK Online Test</h1>
+  <div class="main-wrapper">
+    <div class="left-section">
+      <div class="test-box" id="testArea"></div>
+      <div style="text-align:center">
+        <button id="resultButton" onclick="calculateResult()" class="disabled" disabled>Natijani ko‘rish</button>
+      </div>
+    </div>
+    <div class="right-section">
+      <div class="fixed-indicators" id="indicatorArea"></div>
+      <div id="resultSection">
+        <div id="summary"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="allQuestions" style="display: none">
+ 
+
+
+<div class="question" id="q1">
+  <h3> Kompyuterning “miyasi” nima deb ataladi?</h3>
+  <label><input type="radio" name="q1"> Monitor</label><br>
+  <label><input type="radio" name="q1"> Klaviatura</label><br>
+  <label><input type="radio" name="q1"> Protsessor (CPU)</label><br>
+  <label><input type="radio" name="q1"> Qattiq disk</label><br>
+</div>
+
+<div class="question" id="q2">
+  <h3> Quyidagilardan qaysi biri input qurilmasi?</h3>
+  <label><input type="radio" name="q2"> Printer</label><br>
+  <label><input type="radio" name="q2"> Sichqoncha</label><br>
+  <label><input type="radio" name="q2"> Monitor</label><br>
+  <label><input type="radio" name="q2"> Dinamik</label><br>
+</div>
+
+<div class="question" id="q3">
+  <h3>.txt kengaytmali fayl qanday fayl turiga kiradi?</h3>
+  <label><input type="radio" name="q3"> Grafik fayl</label><br>
+  <label><input type="radio" name="q3"> Video fayl</label><br>
+  <label><input type="radio" name="q3"> Matnli fayl</label><br>
+  <label><input type="radio" name="q3"> Audio fayl</label><br>
+</div>
+
+<div class="question" id="q4">
+  <h3>Algoritm nima?</h3>
+  <label><input type="radio" name="q4"> Internet tezligi</label><br>
+  <label><input type="radio" name="q4"> Muammoni hal qilish uchun bosqichma-bosqich ko‘rsatmalar</label><br>
+  <label><input type="radio" name="q4"> Dastur muhiti</label><br>
+  <label><input type="radio" name="q4"> Fayl tizimi</label><br>
+</div>
+
+<div class="question" id="q5">
+  <h3>Dasturlash tiliga misol keltiring:</h3>
+  <label><input type="radio" name="q5"> Word</label><br>
+  <label><input type="radio" name="q5"> Excel</label><br>
+  <label><input type="radio" name="q5"> Python</label><br>
+  <label><input type="radio" name="q5"> PowerPoint</label><br>
+</div>
+
+<div class="question" id="q6">
+  <h3> Kompyuterda fayllar nimada saqlanadi?</h3>
+  <label><input type="radio" name="q6"> RAM</label><br>
+  <label><input type="radio" name="q6"> Qattiq disk (HDD yoki SSD)</label><br>
+  <label><input type="radio" name="q6"> Protsessor</label><br>
+  <label><input type="radio" name="q6"> Monitor</label><br>
+</div>
+
+<div class="question" id="q7">
+  <h3>Klaviatura qanday qurilma turiga kiradi?</h3>
+  <label><input type="radio" name="q7"> Output</label><br>
+  <label><input type="radio" name="q7"> Input</label><br>
+  <label><input type="radio" name="q7"> Protsessor</label><br>
+  <label><input type="radio" name="q7"> Saqlash</label><br>
+</div>
+
+<div class="question" id="q8">
+  <h3>“if” so‘zi dasturlashda nima uchun ishlatiladi?</h3>
+  <label><input type="radio" name="q8"> Takrorlash uchun</label><br>
+  <label><input type="radio" name="q8"> Shart tekshirish uchun</label><br>
+  <label><input type="radio" name="q8"> O‘zgaruvchini aniqlash uchun</label><br>
+  <label><input type="radio" name="q8"> Fayl ochish uchun</label><br>
+</div>
+
+<div class="question" id="q9">
+  <h3>Quyidagilardan qaysi biri operatsion tizim?</h3>
+  <label><input type="radio" name="q9"> Google Chrome</label><br>
+  <label><input type="radio" name="q9"> Windows</label><br>
+  <label><input type="radio" name="q9"> Photoshop</label><br>
+  <label><input type="radio" name="q9"> Notepad</label><br>
+</div>
+
+<div class="question" id="q10">
+  <h3>RAM qanday xotira turiga kiradi?</h3>
+  <label><input type="radio" name="q10"> Doimiy xotira</label><br>
+  <label><input type="radio" name="q10"> Tezkor (operativ) xotira</label><br>
+  <label><input type="radio" name="q10"> Tashqi xotira</label><br>
+  <label><input type="radio" name="q10"> Virtual xotira</label><br>
+</div>
+
+<div class="question" id="q11">
+  <h3>Kompyuterning asosiy xotirasi nima deb ataladi?</h3>
+  <label><input type="radio" name="q11"> ROM</label><br>
+  <label><input type="radio" name="q11"> SSD</label><br>
+  <label><input type="radio" name="q11"> RAM</label><br>
+  <label><input type="radio" name="q11"> Cache</label><br>
+</div>
+
+<div class="question" id="q12">
+  <h3>Monitor qanday qurilma turiga kiradi?</h3>
+  <label><input type="radio" name="q12"> Kiritish</label><br>
+  <label><input type="radio" name="q12"> Chiqarish</label><br>
+  <label><input type="radio" name="q12"> Saqlash</label><br>
+  <label><input type="radio" name="q12"> Ulanish</label><br>
+</div>
+
+<div class="question" id="q13">
+  <h3>Qaysi qurilma matn kiritish uchun ishlatiladi?</h3>
+  <label><input type="radio" name="q13"> Printer</label><br>
+  <label><input type="radio" name="q13"> Klaviatura</label><br>
+  <label><input type="radio" name="q13"> Skanner</label><br>
+  <label><input type="radio" name="q13"> Dinamik</label><br>
+</div>
+
+<div class="question" id="q14">
+  <h3>Qaysi biri brauzer emas?</h3>
+  <label><input type="radio" name="q14"> Google Chrome</label><br>
+  <label><input type="radio" name="q14"> Mozilla Firefox</label><br>
+  <label><input type="radio" name="q14"> Microsoft Word</label><br>
+  <label><input type="radio" name="q14"> Safari</label><br>
+</div>
+
+<div class="question" id="q15">
+  <h3>“HTML” dasturlash tili nima uchun ishlatiladi?</h3>
+  <label><input type="radio" name="q15"> Veb sahifalarni yaratish</label><br>
+  <label><input type="radio" name="q15"> Video tahrirlash</label><br>
+  <label><input type="radio" name="q15"> Hisob-kitob qilish</label><br>
+  <label><input type="radio" name="q15"> Ma'lumotlar bazasini boshqarish</label><br>
+</div>
+
+<div class="question" id="q16">
+  <h3>Qaysi fayl kengaytmasi rasm fayliga tegishli?</h3>
+  <label><input type="radio" name="q16"> .mp3</label><br>
+  <label><input type="radio" name="q16"> .jpg</label><br>
+  <label><input type="radio" name="q16"> .doc</label><br>
+  <label><input type="radio" name="q16"> .txt</label><br>
+</div>
+
+<div class="question" id="q17">
+  <h3>Qaysi qurilma axborotni qog‘ozga chiqaradi?</h3>
+  <label><input type="radio" name="q17"> Modem</label><br>
+  <label><input type="radio" name="q17"> Printer</label><br>
+  <label><input type="radio" name="q17"> Klaviatura</label><br>
+  <label><input type="radio" name="q17"> Monitor</label><br>
+</div>
+
+<div class="question" id="q18">
+  <h3>Qanday qurilma audio chiqishini ta'minlaydi?</h3>
+  <label><input type="radio" name="q18"> Mikrofon</label><br>
+  <label><input type="radio" name="q18"> Kuler</label><br>
+  <label><input type="radio" name="q18"> Dinamik (kolonka)</label><br>
+  <label><input type="radio" name="q18"> Skanner</label><br>
+</div>
+
+<div class="question" id="q19">
+  <h3>Qanday qurilma kompyuterni Internetga ulaydi?</h3>
+  <label><input type="radio" name="q19"> Protsessor</label><br>
+  <label><input type="radio" name="q19"> Modem</label><br>
+  <label><input type="radio" name="q19"> Monitor</label><br>
+  <label><input type="radio" name="q19"> Klaviatura</label><br>
+</div>
+
+<div class="question" id="q20">
+  <h3>Eng ko‘p qo‘llaniladigan fayl tizimi qaysi?</h3>
+  <label><input type="radio" name="q20"> FAT32</label><br>
+  <label><input type="radio" name="q20"> NTFS</label><br>
+  <label><input type="radio" name="q20"> DOC</label><br>
+  <label><input type="radio" name="q20"> EXT4</label><br>
+</div>
+
+<div class="question" id="q21">
+  <h3>“Bit” so‘zi nimani anglatadi?</h3>
+  <label><input type="radio" name="q21"> Xotira bloki</label><br>
+  <label><input type="radio" name="q21"> Ma’lumot birligi</label><br>
+  <label><input type="radio" name="q21"> Protsessor tezligi</label><br>
+  <label><input type="radio" name="q21"> Fayl turi</label><br>
+</div>
+
+<div class="question" id="q22">
+  <h3>MS Word dasturida nima bajariladi?</h3>
+  <label><input type="radio" name="q22"> Matn yoziladi</label><br>
+  <label><input type="radio" name="q22"> Surat tahrirlanadi</label><br>
+  <label><input type="radio" name="q22"> Video montaj qilinadi</label><br>
+  <label><input type="radio" name="q22"> Jadval tuziladi</label><br>
+</div>
+
+<div class="question" id="q23">
+  <h3>Internetdagi sahifalarni ko‘rish uchun nima kerak?</h3>
+  <label><input type="radio" name="q23"> Tahrirlovchi dastur</label><br>
+  <label><input type="radio" name="q23"> Brauzer</label><br>
+  <label><input type="radio" name="q23"> Antivirus</label><br>
+  <label><input type="radio" name="q23"> Operatsion tizim</label><br>
+</div>
+
+<div class="question" id="q24">
+  <h3>Kompyuterdagi ma'lumotlar qanday saqlanadi?</h3>
+  <label><input type="radio" name="q24"> Energiya bilan</label><br>
+  <label><input type="radio" name="q24"> Raqamli ko‘rinishda</label><br>
+  <label><input type="radio" name="q24"> Faoliyat bo‘yicha</label><br>
+  <label><input type="radio" name="q24"> Analog shaklda</label><br>
+</div>
+
+<div class="question" id="q25">
+  <h3>Qanday fayl kengaytmasi audio faylga tegishli?</h3>
+  <label><input type="radio" name="q25"> .mp3</label><br>
+  <label><input type="radio" name="q25"> .png</label><br>
+  <label><input type="radio" name="q25"> .exe</label><br>
+  <label><input type="radio" name="q25"> .pdf</label><br>
+</div>
+
+<div class="question" id="q26">
+  <h3>“.exe” fayl kengaytmasi qanday ma’noni bildiradi?</h3>
+  <label><input type="radio" name="q26"> Audio fayl</label><br>
+  <label><input type="radio" name="q26"> Ishga tushadigan fayl</label><br>
+  <label><input type="radio" name="q26"> Hujjat fayli</label><br>
+  <label><input type="radio" name="q26"> Video fayl</label><br>
+</div>
+
+<div class="question" id="q27">
+  <h3>“Ctrl + S” tugmalari nima vazifani bajaradi?</h3>
+  <label><input type="radio" name="q27"> Chop etadi</label><br>
+  <label><input type="radio" name="q27"> Saqlaydi</label><br>
+  <label><input type="radio" name="q27"> O‘chiradi</label><br>
+  <label><input type="radio" name="q27"> Nusxa oladi</label><br>
+</div>
+
+<div class="question" id="q28">
+  <h3>Qaysi dastur jadval bilan ishlash uchun?</h3>
+  <label><input type="radio" name="q28"> MS Excel</label><br>
+  <label><input type="radio" name="q28"> MS Paint</label><br>
+  <label><input type="radio" name="q28"> MS Word</label><br>
+  <label><input type="radio" name="q28"> MS PowerPoint</label><br>
+</div>
+
+<div class="question" id="q29">
+  <h3>Qaysi biri tashqi qurilma hisoblanadi?</h3>
+  <label><input type="radio" name="q29"> Qattiq disk</label><br>
+  <label><input type="radio" name="q29"> Sichqoncha</label><br>
+  <label><input type="radio" name="q29"> Anakart</label><br>
+  <label><input type="radio" name="q29"> Protsessor</label><br>
+</div>
+
+<div class="question" id="q30">
+  <h3>“USB” so‘zi nimani anglatadi?</h3>
+  <label><input type="radio" name="q30"> Umumiy tarmoq tizimi</label><br>
+  <label><input type="radio" name="q30"> Universal Serial Bus</label><br>
+  <label><input type="radio" name="q30"> Fayl turi belgisi</label><br>
+  <label><input type="radio" name="q30"> Ulashish bloki</label><br>
+</div>
+<div class="question" id="q31">
+  <h3>“HTML” qisqartmasi nimani anglatadi?</h3>
+  <label><input type="radio" name="q31"> HighText Machine Language</label><br>
+  <label><input type="radio" name="q31"> HyperText Markup Language</label><br>
+  <label><input type="radio" name="q31"> Home Tool Markup Language</label><br>
+  <label><input type="radio" name="q31">Hyper Transfer Markup Line</label><br>
+</div>
+
+<div class="question" id="q32">
+  <h3>Qaysi biri “veb-brauzer” emas?</h3>
+  <label><input type="radio" name="q32"> Google Chrome</label><br>
+  <label><input type="radio" name="q32"> Mozilla Firefox</label><br>
+  <label><input type="radio" name="q32"> Microsoft Excel</label><br>
+  <label><input type="radio" name="q32"> Opera</label><br>
+</div>
+
+<div class="question" id="q33">
+  <h3>“Loop” dasturlashda nimani bildiradi?</h3>
+  <label><input type="radio" name="q33"> Biror shartni tekshirish</label><br>
+  <label><input type="radio" name="q33"> Ma’lumot saqlash</label><br>
+  <label><input type="radio" name="q33"> Takrorlash amali</label><br>
+  <label><input type="radio" name="q33"> Matn formatlash</label><br>
+</div>
+
+<div class="question" id="q34">
+  <h3>“SSD” qaysi qurilma turiga kiradi?</h3>
+  <label><input type="radio" name="q34"> Monitor</label><br>
+  <label><input type="radio" name="q34"> Saqlash qurilmasi</label><br>
+  <label><input type="radio" name="q34"> Kiritish qurilmasi</label><br>
+  <label><input type="radio" name="q34"> Printer</label><br>
+</div>
+
+<div class="question" id="q35">
+  <h3>Qaysi biri dasturlash tili emas?</h3>
+  <label><input type="radio" name="q35"> C++</label><br>
+  <label><input type="radio" name="q35"> Java</label><br>
+  <label><input type="radio" name="q35"> Python</label><br>
+  <label><input type="radio" name="q35"> Excel</label><br>
+</div>
+
+<div class="question" id="q36">
+  <h3>Ma’lumotlarni faqat o‘qish mumkin bo‘lgan xotira turi qaysi?</h3>
+  <label><input type="radio" name="q36"> RAM</label><br>
+  <label><input type="radio" name="q36"> SSD</label><br>
+  <label><input type="radio" name="q36"> ROM</label><br>
+  <label><input type="radio" name="q36"> HDD</label><br>
+</div>
+
+<div class="question" id="q37">
+  <h3>“Compiler” nima vazifani bajaradi?</h3>
+  <label><input type="radio" name="q37"> Veb-sahifa yaratadi</label><br>
+  <label><input type="radio" name="q37"> Kiritilgan ma’lumotni chiqaradi</label><br>
+  <label><input type="radio" name="q37"> Dastur kodini mashina tiliga o‘giradi</label><br>
+  <label><input type="radio" name="q37"> Faylni siqadi</label><br>
+</div>
+
+<div class="question" id="q38">
+  <h3>Monitor qanday qurilma hisoblanadi?</h3>
+  <label><input type="radio" name="q38"> Chiqarish qurilmasi</label><br>
+  <label><input type="radio" name="q38"> Kiritish qurilmasi</label><br>
+  <label><input type="radio" name="q38"> Saqlash qurilmasi</label><br>
+  <label><input type="radio" name="q38"> Tarmoqli qurilma</label><br>
+</div>
+
+<div class="question" id="q39">
+  <h3>Qaysi qurilma “input” va “output” vazifasini birgalikda bajarishi mumkin?</h3>
+  <label><input type="radio" name="q39"> Printer</label><br>
+  <label><input type="radio" name="q39"> Sensor ekran</label><br>
+  <label><input type="radio" name="q39"> Klaviatura</label><br>
+  <label><input type="radio" name="q39"> Monitor</label><br>
+</div>
+
+<div class="question" id="q40">
+  <h3>“Wi-Fi” orqali kompyuter qanday imkoniyatga ega bo‘ladi?</h3>
+  <label><input type="radio" name="q40"> Internetga ulanadi</label><br>
+  <label><input type="radio" name="q40"> Xotira hajmi ortadi</label><br>
+  <label><input type="radio" name="q40"> Grafik ishlov beriladi</label><br>
+  <label><input type="radio" name="q40"> Klaviatura ishlaydi</label><br>
+</div>
+
+<div class="question" id="q41">
+  <h3>Qaysi biri fayl kengaytmasi emas?</h3>
+  <label><input type="radio" name="q41"> .docx</label><br>
+  <label><input type="radio" name="q41"> .png</label><br>
+  <label><input type="radio" name="q41"> .run</label><br>
+  <label><input type="radio" name="q41"> .boot</label><br>
+</div>
+
+<div class="question" id="q42">
+  <h3>Algoritm tuzishda foydalaniladigan grafik belgilar nima deb ataladi?</h3>
+  <label><input type="radio" name="q42"> Piksel</label><br>
+  <label><input type="radio" name="q42"> Diagramma</label><br>
+  <label><input type="radio" name="q42"> Blok-sxema</label><br>
+  <label><input type="radio" name="q42"> Vektor</label><br>
+</div>
+
+<div class="question" id="q43">
+  <h3>Qaysi biri veb dasturlash tilidir?</h3>
+  <label><input type="radio" name="q43"> HTML</label><br>
+  <label><input type="radio" name="q43"> C++</label><br>
+  <label><input type="radio" name="q43"> Windows</label><br>
+  <label><input type="radio" name="q43"> Word</label><br>
+</div>
+
+<div class="question" id="q44">
+  <h3>“.exe” kengaytmali fayl qanday fayl bo‘ladi?</h3>
+  <label><input type="radio" name="q44"> Matnli fayl</label><br>
+  <label><input type="radio" name="q44"> Ishga tushiriluvchi fayl</label><br>
+  <label><input type="radio" name="q44"> Rasm fayli</label><br>
+  <label><input type="radio" name="q44"> Musiqa fayli</label><br>
+</div>
+
+<div class="question" id="q45">
+  <h3>Qaysi biri dasturlash muhiti hisoblanadi?</h3>
+  <label><input type="radio" name="q45"> Visual Studio Code</label><br>
+  <label><input type="radio" name="q45"> Google</label><br>
+  <label><input type="radio" name="q45"> Paint</label><br>
+  <label><input type="radio" name="q45"> Notepad</label><br>
+</div>
+
+<div class="question" id="q46">
+  <h3>Eng mashhur mobil operatsion tizimlardan biri?</h3>
+  <label><input type="radio" name="q46"> Android</label><br>
+  <label><input type="radio" name="q46"> Windows XP</label><br>
+  <label><input type="radio" name="q46"> MS-DOS</label><br>
+  <label><input type="radio" name="q46"> Ubuntu Server</label><br>
+</div>
+
+<div class="question" id="q47">
+  <h3>JavaScript dasturlash tili qaysi sohada ko‘p qo‘llaniladi?</h3>
+  <label><input type="radio" name="q47"> Mobil ilovalar</label><br>
+  <label><input type="radio" name="q47"> Veb dasturlash</label><br>
+  <label><input type="radio" name="q47"> O‘yinlar yaratish</label><br>
+  <label><input type="radio" name="q47"> Elektron jadvallar</label><br>
+</div>
+
+<div class="question" id="q48">
+  <h3>Qaysi biri kompyuterga “input” kiritishda yordam beradi?</h3>
+  <label><input type="radio" name="q48"> Scanner</label><br>
+  <label><input type="radio" name="q48"> Protsessor</label><br>
+  <label><input type="radio" name="q48"> Projector</label><br>
+  <label><input type="radio" name="q48"> Speaker</label><br>
+</div>
+
+<div class="question" id="q49">
+  <h3>“Python” dasturlash tili haqida to‘g‘ri fikrni toping:</h3>
+  <label><input type="radio" name="q49"> U grafik tahrirlovchi dastur</label><br>
+  <label><input type="radio" name="q49"> U tarmoq qurilmasi</label><br>
+  <label><input type="radio" name="q49"> U yuqori darajadagi dasturlash tili</label><br>
+  <label><input type="radio" name="q49"> U faqat Linuxda ishlaydi</label><br>
+</div>
+
+<div class="question" id="q50">
+  <h3>“USB” qisqartmasi nimani bildiradi?</h3>
+  <label><input type="radio" name="q50"> Unique System Binary</label><br>
+  <label><input type="radio" name="q50"> Universal Serial Bus</label><br>
+  <label><input type="radio" name="q50"> Unified Software Base</label><br>
+  <label><input type="radio" name="q50"> User Standard Box</label><br>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    
+
+  <script>
+    let correctAnswers = {};
+
+    function showRandomTests() {
+      const testArea = document.getElementById('testArea');
+      const indicatorArea = document.getElementById('indicatorArea');
+      const summary = document.getElementById('summary');
+      const resultSection = document.getElementById('resultSection');
+      const resultButton = document.getElementById('resultButton');
+      testArea.innerHTML = '';
+      indicatorArea.innerHTML = '';
+      summary.innerHTML = '';
+      resultSection.style.display = 'none';
+      correctAnswers = {};
+      resultButton.classList.add('disabled');
+      resultButton.disabled = true;
+
+      const allQuestions = Array.from(document.querySelectorAll('#allQuestions .question'));
+      const selected = allQuestions.sort(() => Math.random() - 0.5).slice(0, 20);
+
+      selected.forEach((q, i) => {
+        const clone = q.cloneNode(true);
+        clone.dataset.index = i;
+        clone.id = 'question-' + i;
+        testArea.appendChild(clone);
+
+        const inputs = clone.querySelectorAll('input[type="radio"]');
+        inputs.forEach(input => {
+          if (input.dataset.correct === "true") correctAnswers[i] = input.value;
+          input.addEventListener('change', checkCompletion);
+        });
+      });
+      indicatorArea.innerHTML = '';
+      const row1 = document.createElement('div');
+      const row2 = document.createElement('div');
+      row1.classList.add('indicator-row');
+      row2.classList.add('indicator-row');
+
+      for (let i = 0; i < 20; i++) {
+        const number = document.createElement('div');
+        number.classList.add('number');
+        number.textContent = i + 1;
+        number.dataset.index = i; 
+        number.onclick = () => document.getElementById('question-' + i).scrollIntoView({behavior: 'smooth'});
+        if (i < 10) {
+          row1.appendChild(number);
+        } else {
+          row2.appendChild(number);
+        }
+      }
+      indicatorArea.appendChild(row1);
+      indicatorArea.appendChild(row2);
+    }
+
+    function checkCompletion() {
+      const resultButton = document.getElementById('resultButton');
+      const checkedInputs = document.querySelectorAll('input[type="radio"]:checked');
+      const numbers = document.querySelectorAll('.number');
+
+     
+      numbers.forEach(number => number.classList.remove('active'));
+      checkedInputs.forEach(input => {
+        const questionIndex = input.closest('.question').dataset.index;
+        const number = document.querySelector(`.number[data-index="${questionIndex}"]`);
+        if (number) number.classList.add('active');
+      });
+
+      if (checkedInputs.length === 20) {
+        resultButton.classList.remove('disabled');
+        resultButton.disabled = false;
+      }
+    }
+
+    function calculateResult() {
+      let correct = 0;
+      let incorrect = 0;
+
+      for (let i = 0; i < 20; i++) {
+        const selected = document.querySelector(`#question-${i} input[type=radio]:checked`);
+        if (selected && selected.dataset.correct === "true") {
+          correct++;
+        } else if (selected && selected.dataset.correct !== "true") {
+          incorrect++;
+        }
+      }
+      const percent = Math.round((correct / 20) * 100);
+      const summary = document.getElementById('summary');
+      const resultSection = document.getElementById('resultSection');
+      resultSection.style.display = 'block';
+      let message = `
+        <strong>To‘g‘ri javoblar:</strong> ${correct}<br>
+        <strong>Noto‘g‘ri javoblar:</strong> ${incorrect}<br>
+        <strong>Foiz:</strong> ${percent}%
+      `;
+      if (percent < 80) {
+        message += '<br><strong>Siz TDK o\'quv markazida taqsil olishingiz kerak!</strong>';
+      }
+      summary.innerHTML = message;
+    }
+
+    window.onload = showRandomTests;
+  </script>
+</body>
+</html>

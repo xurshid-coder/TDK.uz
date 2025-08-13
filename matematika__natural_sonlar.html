@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natural Sonlar — Matematika</title>
+  <style>
+    :root{
+      --bg1:#f5f7fa; --bg2:#c3cfe2; --card:#ffffff; --accent:#3498db; --muted:#6b7280; --radius:15px; --table-border:#e6f3ff
+    }
+    *{box-sizing:border-box}
+    body{margin:0;padding:0;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;background:linear-gradient(135deg,var(--bg1),var(--bg2));color:#2c3e50}
+    .wrap{max-width:1100px;margin:40px auto;padding:30px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:20px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#2ecc71);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;box-shadow:0 6px 18px rgba(52,152,219,0.18)}
+    h1{font-size:30px;margin:0;color:#34495e}
+    nav a{margin-left:14px;color:var(--muted);text-decoration:none;font-weight:600}
+    .container{background:var(--card);padding:36px;border-radius:var(--radius);box-shadow:0 12px 30px rgba(44,62,80,0.07);animation:fadeIn .8s ease-in-out}
+    .lead{font-size:18px;line-height:1.7;text-align:center;color:#2f4150;margin-bottom:20px}
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:26px}
+    .card{background:#fbfdff;border-radius:12px;padding:18px;margin-bottom:18px;box-shadow:0 8px 20px rgba(12,30,50,0.03)}
+    .section-title{font-size:20px;color:#2c3e50;margin-bottom:10px}
+    .highlight{background:#ecf0f1;padding:14px 18px;border-left:6px solid var(--accent);border-radius:8px;margin:14px 0}
+    pre{background:#0b1220;color:#e6f1ff;padding:12px;border-radius:8px;overflow:auto;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco,'Roboto Mono','Courier New',monospace}
+    table{width:100%;border-collapse:collapse;margin-top:10px}
+    th,td{padding:10px;border-bottom:1px solid var(--table-border);text-align:left}
+    thead th{background:linear-gradient(90deg,#f7fbff,#eef8ff);font-weight:700}
+    ul{line-height:1.7}
+    .formula{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace;background:#f4f9ff;padding:10px;border-radius:8px;border:1px solid #e6f3ff}
+    aside .card{position:sticky;top:28px}
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:14px}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}.logo{width:56px;height:56px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">TDK</div>
+        <div>
+          <h1>Natural Sonlar</h1>
+          <div style="color:var(--muted);font-size:13px">Natural numbers — ta'riflar, xususiyatlar va mashqlar</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">Asosiy</a>
+        <a href="#props">Xususiyatlar</a>
+        <a href="#examples">Misollar</a>
+        <a href="#exercises">Mashqlar</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <p class="lead">Ushbu sahifa natural sonlar (tabiiy sonlar) haqida. Ta'rif, asosiy xususiyatlar, amaliy misollar va mashqlar topasiz. Qisqacha, sodda va boshlang'ich talabalarga mos.</p>
+
+      <div class="grid">
+        <main>
+
+          <section id="about" class="card">
+            <div class="section-title">Natural sonlar nima?</div>
+            <p>Natural sonlar — bu sanashda ishlatiladigan ijobiy butun sonlar. Odatda ularni <strong>N</strong> harfi bilan belgilashadi:</p>
+            <div class="highlight">
+              <p><strong>Ta'rif:</strong> N = {1, 2, 3, 4, ...}. Ba'zi matematiklar 0 ni ham natural sonlarga kiritadi: N₀ = {0,1,2,3,...}.</p>
+            </div>
+            <div class="highlight">
+              <p><strong>Eslatma:</strong> Ushbu sahifada natural sonlar 1 dan boshlanadi — ya'ni 0 kiritilmaydi. Agar xohlasangiz 0 ni ham qo'shib ko'rsataman.</p>
+            </div>
+          </section>
+
+          <section id="props" class="card">
+            <div class="section-title">Asosiy xususiyatlar</div>
+            <ul>
+              <li><strong>Yig'ishga yopiq:</strong> Agar a va b natural son bo'lsa, a + b ham natural sondir.</li>
+              <li><strong>Ko'paytirishga yopiq:</strong> a × b ham natural sondir.</li>
+              <li><strong>Taqqoslanadi:</strong> har bir natural son o'zidan keyingi son bilan ko'paytiriladi.</li>
+              <li><strong>Natural sonlar tartibli:</strong> 1 &lt; 2 &lt; 3 &lt; ...</li>
+            </ul>
+
+            <div class="highlight">
+              <div class="section-title" style="font-size:16px;margin-bottom:8px">Sonlar o'ziga xos xususiyatlari</div>
+              <p><strong>Prime (tub) sonlar:</strong> Natural son bo'lib, faqat 1 va o'ziga bo'linadigan sonlar — masalan, 2,3,5,7,11...</p>
+              <p><strong>Kompozit sonlar:</strong> 1 dan katta va tub bo'lmagan natural sonlar — masalan, 4,6,8,9...</p>
+            </div>
+          </section>
+
+          <section id="examples" class="card">
+            <div class="section-title">Misollar va amaliy ta'riflar</div>
+            <h4>1) Juft va toq sonlar</h4>
+            <p>Natural son <strong>juft</strong> bo'lsa, u 2 ga bo'linadi: 2,4,6...; <strong>toq</strong> bo'lsa 2 ga bo'linmaydi: 1,3,5...</p>
+
+            <h4>2) Faktorial (n!)</h4>
+            <p>n! — 1 dan n gacha bo'lgan natural sonlarning ko'paytmasi:</p>
+            <div class="formula">n! = n × (n-1) × ... × 2 × 1</div>
+            <p>Masalan, 5! = 120.</p>
+
+            <h4>3) Arifmetik progressiya</h4>
+            <p>Natural sonlar arifmetik progressiya sifatida: 1,2,3,... bu yerda har bir qadam 1 ga teng.</p>
+          </section>
+
+          <section id="exercises" class="card">
+            <div class="section-title">Mashqlar</div>
+            <ol>
+              <li>1 dan 20 gacha bo'lgan natural sonlarni yozing va juft va toq sonlarni ajrating.</li>
+              <li>Biror natural sonning tub yoki kompozitligini aniqlang (masalan, 29).</li>
+              <li>5! ni hisoblang.</li>
+              <li>Natural sonlar yordamida oddiy summani (1+2+...+n) formulasi: S = n(n+1)/2 — bu formulani n=10 uchun tekshiring.</li>
+            </ol>
+
+            <div class="highlight">Javoblarni xohlasangiz, men keyingi xabarda ularni taqdim etaman yoki sahifaga 'Javoblar' bo'limini qo'shaman.</div>
+          </section>
+
+        </main>
+
+        <aside>
+          <div class="card">
+            <div class="section-title">Tez eslatma</div>
+            <ul>
+              <li>Natural sonlar – sanash uchun ishlatiladi.</li>
+              <li>Ba'zan 0 ni ham natural deb hisoblashadi — aniqlik uchun kontekst muhim.</li>
+              <li>Faktorial va progressiyalar natural sonlar bilan ko'p ishlatiladi.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="section-title">Qo'shimcha resurslar</div>
+            <ul>
+              <li>Khan Academy — natural numbers</li>
+              <li>Brilliant.org — fundamentals</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="section-title">Tez formulalar</div>
+            <div class="formula">1 + 2 + ... + n = n(n+1)/2</div>
+            <div class="formula">n! = n × (n-1) × ... × 1</div>
+          </div>
+        </aside>
+      </div>
+
+      <footer>© 2025 TDK – Taʼlim Dunyo Kaliti. Barcha huquqlar himoyalangan.</footer>
+    </div>
+  </div>
+</body>
+</html>

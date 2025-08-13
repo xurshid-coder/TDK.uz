@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>O'zgaruvchilar va Tiplar — Python</title>
+  <style>
+    :root{
+      --bg1: #f5f7fa;
+      --bg2: #c3cfe2;
+      --card:#ffffff;
+      --accent:#3498db;
+      --muted:#6b7280;
+      --radius:15px;
+    }
+    *{box-sizing:border-box}
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      color: #2c3e50;
+      -webkit-font-smoothing:antialiased;
+    }
+    .wrap{
+      max-width:1100px;
+      margin:40px auto;
+      padding:30px;
+    }
+    header {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:20px;
+    }
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#2ecc71);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;box-shadow:0 6px 18px rgba(52,152,219,0.18)}
+    h1{font-size:30px;margin:0;color:#34495e}
+    nav a{margin-left:14px;color:var(--muted);text-decoration:none;font-weight:600}
+
+    .container{background:var(--card);padding:36px;border-radius:var(--radius);box-shadow:0 12px 30px rgba(44,62,80,0.07);animation:fadeIn .8s ease-in-out}
+    .lead{font-size:18px;line-height:1.7;text-align:center;color:#2f4150;margin-bottom:20px}
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:26px}
+    .card{background:#fbfdff;border-radius:12px;padding:18px;margin-bottom:18px;box-shadow:0 8px 20px rgba(12,30,50,0.03)}
+    .section-title{font-size:20px;color:#2c3e50;margin-bottom:10px}
+    .highlight{background:#ecf0f1;padding:14px 18px;border-left:6px solid var(--accent);border-radius:8px;margin:14px 0}
+    pre{background:#0b1220;color:#e6f1ff;padding:16px;border-radius:8px;overflow:auto;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace}
+    code{font-size:14px}
+    ul{line-height:1.7}
+    aside .card{position:sticky;top:28px}
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:14px}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}.logo{width:56px;height:56px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">TDK</div>
+        <div>
+          <h1>O'zgaruvchilar va Tiplar</h1>
+          <div style="color:var(--muted);font-size:13px">Python — Asosiy tushunchalar</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">Asosiy</a>
+        <a href="#types">Turlar</a>
+        <a href="#mutability">Mutability</a>
+        <a href="#exercises">Mashqlar</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <p class="lead">Bu sahifa Python dasturlash tilida o'zgaruvchilar va ma'lumot tiplari (types) haqida chuqur va amaliy ma'lumot beradi. Har bir bo'lim misollar va tez eslatmalar bilan boyitilgan.</p>
+
+      <div class="grid">
+        <main>
+          <section id="about" class="card">
+            <div class="section-title">O'zgaruvchi (Variable) nima?</div>
+            <p>O'zgaruvchi — xotirada saqlanadigan qiymatga berilgan nom. Python-da o'zgaruvchilar uchun maxsus kalit so'z kerak emas: nomni yozib, unga qiymat tayinlaysiz.</p>
+            <pre><code># o'zgaruvchi yaratish
+x = 10
+name = "Aziz"
+pi = 3.14</code></pre>
+            <div class="highlight">
+              <strong>Eslatma:</strong> Python dinamik turga ega — o'zgaruvchining turi qiymatga qarab avtomatik belgilanadi.
+            </div>
+          </section>
+
+          <section id="types" class="card">
+            <div class="section-title">Asosiy ma'lumot turlari</div>
+            <h4>1. int (butun son)</h4>
+            <pre><code>a = 7     # int</code></pre>
+
+            <h4>2. float (o'nli son)</h4>
+            <pre><code>b = 3.14  # float</code></pre>
+
+            <h4>3. str (matn / string)</h4>
+            <pre><code>name = "Salom"  # str</code></pre>
+
+            <h4>4. bool (mantiqiy)</h4>
+            <pre><code>flag = True   # bool</code></pre>
+
+            <h4>5. list (ro'yxat)</h4>
+            <pre><code>nums = [1,2,3]   # list</code></pre>
+
+            <h4>6. tuple (o'zgarmas ro'yxat)</h4>
+            <pre><code>pt = (1,2,3)     # tuple</code></pre>
+
+            <h4>7. dict (lug'at / xarita)</h4>
+            <pre><code>d = {"ism": "Ali", "yosh": 20}  # dict</code></pre>
+
+            <h4>8. set (to'plam)</h4>
+            <pre><code>s = {1,2,3}     # set</code></pre>
+
+            <div class="highlight">
+              <strong>How to check type:</strong>
+              <pre><code>type(5)      # &lt;class 'int'&gt;
+type("hello") # &lt;class 'str'&gt;</code></pre>
+            </div>
+          </section>
+
+          <section id="mutability" class="card">
+            <div class="section-title">Mutability (o'zgarmaslik / o'zgaruvchanlik)</div>
+            <p>Ba'zi turlar ichidagi qiymatni o'zgartirish mumkin (mutable), boshqalari esa emas (immutable).</p>
+            <ul>
+              <li><strong>Mutable:</strong> list, dict, set — element qo'shish, o'chirish mumkin.</li>
+              <li><strong>Immutable:</strong> int, float, str, tuple — yangi qiymat berish orqali o'zgartiriladi (asl qiymat o'rniga yangi ob'ekt yaratiladi).</li>
+            </ul>
+
+            <h4>Misol — list va tuple:</h4>
+            <pre><code>lst = [1,2,3]
+lst.append(4)  # lst hozir [1,2,3,4]
+
+t = (1,2,3)
+# t.append(4)  # xato — tuple uchun append yo'q</code></pre>
+
+            <div class="highlight">
+              <strong>Diqqat:</strong> Immutable ob'ektlarning o'zgarishi aslida yangi ob'ekt yaratishdir. Bu identifikator (id) o'zgarishida ko'rinadi.
+            </div>
+          </section>
+
+          <section id="conversion" class="card">
+            <div class="section-title">Tiplarni konvertatsiyalash</div>
+            <p>Ba'zida tiplarni o'zgartirish kerak bo'ladi:</p>
+            <pre><code>int('10')    # 10
+float('3.14') # 3.14
+str(100)      # '100'
+list((1,2,3))  # [1,2,3]</code></pre>
+
+            <div class="highlight">
+              <strong>Eslatma:</strong> Konvertatsiya har doim muvaffaqiyatli bo'lmasligi mumkin — masalan, <code>int("3.14")</code> xato beradi.
+            </div>
+          </section>
+
+          <section id="operators" class="card">
+            <div class="section-title">Operatorlar va tiplar bilan ishlash</div>
+            <p>Matematik va mantiqiy operatorlar tiplarga bog'liq:</p>
+            <pre><code>3 + 4      # 7 (int)
+3 + 4.5    # 7.5 (float)
+"a" + "b" # 'ab' (str concatenation)
+[1] + [2]  # [1,2] (list concatenation)</code></pre>
+
+            <div class="highlight">
+              <strong>Xatolik:</strong> turli turlarni arifmetik qo'shib bo'lmaydi — masalan, <code>"2" + 3</code> xato beradi.
+            </div>
+          </section>
+
+          <section id="examples" class="card">
+            <div class="section-title">Amaliy misollar</div>
+            <h4>1) Foydalanuvchi yoshini hisoblash</h4>
+            <pre><code>yosh = int(input("Yoshingiz nechida? "))
+print("Sizning yosh: ", yosh)</code></pre>
+
+            <h4>2) Sonlar bilan ishlash</h4>
+            <pre><code>a = "5"
+b = 3
+c = int(a) + b  # 8
+print(c)</code></pre>
+
+            <h4>3) Lug'atdan qiymat olish</h4>
+            <pre><code>d = {"ism":"Ali","yosh":25}
+print(d.get("ism"))  # Ali</code></pre>
+
+          </section>
+
+          <section id="pitfalls" class="card">
+            <div class="section-title">Ko'p uchraydigan xatoliklar</div>
+            <ul>
+              <li>Indentatsiya xatolari — Python-da bo'sh joylar muhim.</li>
+              <li>O'zgaruvchi nomini kalit so'z bilan bir xil qilish (masalan, <code>list</code>) — tavsiya etilmaydi.</li>
+              <li>Tipni xato taxmin qilish — input() dan olingan qiymat string bo'ladi.</li>
+            </ul>
+          </section>
+
+          <section id="exercises" class="card">
+            <div class="section-title">Mashqlar</div>
+            <ol>
+              <li>Foydalanuvchidan ikki son olib ularning ko'paytmasini chiqaring (tip konvertatsiyasini qo'llang).</li>
+              <li>Ro'yxatdan faqat musbat sonlarni olib yangi ro'yxat hosil qiling.</li>
+              <li>Foydalanuvchidan yosh so'rab, agar yosh &gt;= 18 bo'lsa, 'Kattalar' deb chiqaring, aks holda 'Bolalar'.</li>
+            </ol>
+          </section>
+
+        </main>
+
+        <aside>
+          <div class="card">
+            <div class="section-title">Tez ko'rsatma</div>
+            <ul>
+              <li><strong>Tipni tekshirish:</strong> <code>type(x)</code></li>
+              <li><strong>Tipni o'zgartirish:</strong> <code>int(), float(), str(), list()</code></li>
+              <li><strong>String formatlash:</strong> <code>f"Salom, {name}"</code></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="section-title">Qisqa xotira</div>
+            <ul>
+              <li>int — butun son</li>
+              <li>float — o'nli son</li>
+              <li>str — matn</li>
+              <li>list — o'zgarmas emas ro'yxat</li>
+              <li>tuple — o'zgarmas ro'yxat</li>
+              <li>dict — kalit:qiymat juftliklari</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="section-title">Foydali manbalar</div>
+            <ul>
+              <li>docs.python.org — rasmiy hujjat</li>
+              <li>W3Schools, Real Python — amaliy maqolalar</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+      <footer>
+        © 2025 TDK – Taʼlim Dunyo Kaliti. Barcha huquqlar himoyalangan.
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
