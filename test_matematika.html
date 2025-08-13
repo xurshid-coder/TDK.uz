@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TDK Online Test</title>
+  <meta name="viewport" content="width=1024">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -129,6 +130,9 @@
     #resultSection {
       display: none;
     }
+    if (screen.width < 1024) {
+    document.querySelector("meta[name=viewport]").setAttribute('content', 'width=1024');
+}
   </style>
 </head>
 <body>
@@ -639,3 +643,4 @@
 </body>
 
 </html>
+
