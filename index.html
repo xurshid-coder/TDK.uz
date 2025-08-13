@@ -329,48 +329,7 @@
         }, 300); 
       });
     });
-    const BOT_TOKEN = "BOT_TOKENingizni_bu_yerga_yozing";
-  const CHAT_ID = "CHAT_IDingizni_bu_yerga_yozing";
-  const TELEGRAM_URL = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-
-  document.getElementById("regForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const surname = document.getElementById("surname").value;
-    const birthdate = document.getElementById("birthdate").value;
-    const course = document.getElementById("course").value;
-    const comment = document.getElementById("comment").value;
-
-    const message = `
-📝 Yangi ro'yxatdan o'tish:
-👤 Ism: ${name}
-👥 Familiya: ${surname}
-🎂 Tug'ilgan sana: ${birthdate}
-📚 Kurs: ${course}
-💬 Izoh: ${comment}
-    `;
-
-    fetch(TELEGRAM_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        chat_id: CHAT_ID,
-        text: message
-      })
-    })
-    .then(res => {
-      if (res.ok) {
-        alert("Ma'lumot muvaffaqiyatli yuborildi!");
-        document.getElementById("regForm").reset();
-      } else {
-        alert("Xatolik yuz berdi!");
-      }
-    })
-    .catch(err => {
-      alert("Xatolik: " + err);
-    });
-  });
+   
   </script>
 </body>
 </html>
